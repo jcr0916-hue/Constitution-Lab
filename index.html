@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Constitution Lab — Explore Constitutional Design</title>
+<meta name="description" content="The Federated Republic shows what one constitutional design looks like. The Constitution Lab explores what constitutional design can be.">
+<style>
+:root{--bg:#fdfcfa;--ink:#1a1a1a;--muted:#6b6b6b;--accent:#0e4a5a;--border:#e9e4d8;--card:#fff;--warn:#92400e}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{max-width:1080px;margin:0 auto;padding:48px 24px 24px}
+.badge{display:inline-block;background:var(--ink);color:#fff;padding:5px 10px;border-radius:99px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:44px;line-height:1.05;letter-spacing:-.03em;margin:14px 0 10px} h1 em{color:var(--accent);font-style:normal}
+.lead{font-size:18px;color:var(--muted);max-width:720px}
+.nav{display:flex;gap:10px;margin:20px 0;flex-wrap:wrap}
+.btn{padding:10px 16px;border-radius:99px;border:1px solid var(--border);background:var(--card);font-size:14px;text-decoration:none;color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.hero-grid{max-width:1080px;margin:12px auto;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;padding:0 24px}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:20px}
+.card h2{margin:0 0 6px;font-size:18px} .muted{color:var(--muted);font-size:13px}
+.principles{max-width:1080px;margin:24px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 24px}
+@media(max-width:880px){.principles{grid-template-columns:1fr}}
+.pill{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:#eef4f5;color:var(--accent);padding:4px 8px;border-radius:99px}
+.modules{max-width:1080px;margin:24px auto;padding:0 24px}
+.mod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.mod-grid{grid-template-columns:1fr 1fr}} @media(max-width:560px){.mod-grid{grid-template-columns:1fr}}
+.mod{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.mod h3{margin:0;font-size:15px}
+.mod p{margin:0;font-size:13px;color:#333}
+.mod a{margin-top:auto;font-size:13px;color:var(--accent);text-decoration:none;font-weight:600}
+.status{font-size:11px;color:#fff;background:#16a34a;padding:2px 8px;border-radius:99px;display:inline-block}
+.status.wip{background:#f59e0b}
+footer{max-width:1080px;margin:32px auto;padding:0 24px 48px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:16px;margin-top:32px}
+</style>
+</head>
+<body>
+<header>
+<div class="badge">Constitution Lab • Sister project to the Federated Republic</div>
+<h1>The Federated Republic shows what <em>one design</em> looks like.<br> The Lab explores what <em>design can be.</em></h1>
+<p class="lead">A neutral, modular, evidence-based studio for constitutional design. Compare institutions, test trade-offs with real cases, combine choices into your own architecture.</p>
+<div class="nav">
+<a class="btn primary" href="explorer/head-of-government/adventure/">▶ Start the adventure — Can you survive the week?</a>
+<a class="btn" href="explorer/head-of-government/">Explore: Who's in charge?</a>
+<a class="btn" href="https://jcr0916-hue.github.io/Federated-Republic/" target="_blank" rel="noopener">Visit the Federated Republic →</a>
+</div>
+</header>
+
+<div class="hero-grid">
+<div class="card">
+<h2>Two complementary projects</h2>
+<p style="font-size:14px;margin:6px 0"><strong>The Federated Republic</strong> — one complete constitutional system, demonstrated through Torenthia. A finished building you can walk through.</p>
+<p style="font-size:14px;margin:6px 0"><strong>The Constitution Lab</strong> — the design studio. No house style. Pick a question (who runs the government? how to protect rights?) and compare how democracies answered it.</p>
+<p class="muted" style="margin-top:10px">The FR becomes <em>one reference model among others</em> in the Lab — not the answer you're expected to arrive at.</p>
+</div>
+<div class="card" style="background:#0e4a5a;color:#fff;border-color:#0e4a5a">
+<h2 style="color:#fff">Start in 3 minutes</h2>
+<p style="font-size:14px;color:#d6e8ec;margin:6px 0">You are PM, with a 1-vote majority. Budget vote tomorrow. Your partner walked out.</p>
+<p style="font-size:14px;color:#d6e8ec;margin:6px 0">Make 3 choices. Then rewind: what if you were a President?</p>
+<a href="explorer/head-of-government/adventure/" style="display:inline-block;margin-top:8px;background:#fff;color:#0e4a5a;padding:8px 14px;border-radius:99px;text-decoration:none;font-weight:700;font-size:13px">Play Book 1 →</a>
+</div>
+</div>
+
+<div class="principles">
+<div class="card"><span class="pill">Neutrality</span><h2>No preferred answer</h2><p class="muted">Every option gets the same template, same evidence length, same card size. The Lab has no house system. FR appears once per module as “one implementation among others.”</p></div>
+<div class="card"><span class="pill">Modularity</span><h2>Explore one piece</h2><p class="muted">You don't need to adopt a whole constitution. Dive into Head of Government, Legislature, or Rights — 7 minutes each. Combine later if you want.</p></div>
+<div class="card"><span class="pill">Evidence</span><h2>Real cases, not just hypotheticals</h2><p class="muted">Each mechanism links to 3–5 real constitutions and what happened: Germany’s constructive vote, France’s cohabitation, Brazil’s deadlock.</p></div>
+</div>
+
+<div class="modules">
+<h2 style="margin:0 0 8px">Explorer modules</h2>
+<p class="muted" style="margin:0 0 12px">Each module: <strong>Meet the options → Compare → Break it → Your Architecture</strong>. Deterministic rules, optional AI for weird combos.</p>
+<div class="mod-grid">
+<div class="mod"><h3>01 — Head of Government <span class="status">live</span></h3><p>Who runs the government, and who can remove them? Confidence vs fixed term vs dual.</p><a href="explorer/head-of-government/adventure/">Play adventure →</a><a href="explorer/head-of-government/">Compare all 5 →</a></div>
+<div class="mod"><h3>02 — Legislature <span class="status wip">next</span></h3><p>One chamber or two? What does the second do — veto, delay, or represent?</p><a>Coming soon</a></div>
+<div class="mod"><h3>03 — Head of State & Reserve Powers <span class="status wip">next</span></h3><p>Monarch, president, or council — and when can they step in?</p><a>Coming soon</a></div>
+<div class="mod"><h3>04 — Electoral System</h3><p>How votes become seats — and how seats shape parties and stability.</p><a>Planned</a></div>
+<div class="mod"><h3>05 — Federalism / Devolution</h3><p>Where power lives: central, shared, or local.</p><a>Planned</a></div>
+<div class="mod"><h3>06 — Courts & Rights</h3><p>Who guards the constitution — and how hard is it to change?</p><a>Planned</a></div>
+</div>
+</div>
+
+<footer>
+<strong>Constitution Lab</strong> is an independent sister site to the Federated Republic. Separate identity, separate repository, linked where useful. FR shows one complete design in action (Torenthia). The Lab shows the design space.<br><br>
+Repository: <a href="https://github.com/jcr0916-hue/Constitution-Lab">jcr0916-hue/Constitution-Lab</a> • Built with structured JSON + deterministic rules • AI optional, not required.
+</footer>
+</body>
+</html>
