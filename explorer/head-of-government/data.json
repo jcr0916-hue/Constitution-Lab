@@ -1,0 +1,254 @@
+{
+  "module": {
+    "id": "hog_01",
+    "title": "Who should run the government — and who can remove them?",
+    "subtitle": "5 ways democracies answer this. Each choice reorganizes power differently.",
+    "principle": "Head of Government Selection",
+    "options": [
+      {
+        "id": "parliamentary_confidence",
+        "label": "Parliamentary Confidence",
+        "mechanism": "Prime Minister serves while retaining support of legislature. Removed by vote of no confidence.",
+        "how_chosen": "Selected by legislature / head of state appoints who can command majority",
+        "how_removed": "Vote of no confidence, resignation, election loss",
+        "continuity": "Low-Medium (governments can fall quickly)",
+        "accountability": "High (daily accountability to parliament)",
+        "checks": "Fused - relies on parliament and party discipline",
+        "cases": [
+          {
+            "country": "Germany (1949-)",
+            "note": "Constructive vote of no confidence -> high stability, only 8 chancellors"
+          },
+          {
+            "country": "Italy (1946-1992)",
+            "note": "Fragmented parties + simple confidence -> 40+ governments, instability"
+          },
+          {
+            "country": "United Kingdom",
+            "note": "Two-party system stabilizes confidence; coalition 2010 tested conventions"
+          }
+        ],
+        "variants": [
+          "Constructive confidence (Germany, Spain)",
+          "Simple majority (UK, Sweden)",
+          "Fixed-term with confidence (Norway adaptation)"
+        ]
+      },
+      {
+        "id": "direct_presidential",
+        "label": "Direct Presidential",
+        "mechanism": "President elected directly by voters for fixed term. Separately legitimized from legislature.",
+        "how_chosen": "Direct popular election (plurality, majority runoff, or electoral college)",
+        "how_removed": "Impeachment, term limit, next election only",
+        "continuity": "High (fixed term)",
+        "accountability": "Medium (mid-term removal difficult)",
+        "checks": "Strong separation; needs veto-override, judicial review",
+        "cases": [
+          {
+            "country": "United States",
+            "note": "Fixed term + strong checks -> stability but periodic deadlock (e.g. 1860s, 1970s)"
+          },
+          {
+            "country": "Brazil",
+            "note": "Presidential + fragmented multiparty -> coalition presidentialism needed"
+          },
+          {
+            "country": "South Korea (1987-)",
+            "note": "Single 5-year term designed to prevent entrenchment after authoritarian rule"
+          }
+        ],
+        "variants": [
+          "Plurality winner (Mexico pre-2000)",
+          "Two-round runoff (France President, Brazil)",
+          "Electoral College (USA)"
+        ]
+      },
+      {
+        "id": "assembly_appointed",
+        "label": "Assembly-Appointed",
+        "mechanism": "Legislature elects executive for a term. Executive not continuously dependent on confidence but owes election to assembly.",
+        "how_chosen": "Elected by parliament / assembly, sometimes joint session",
+        "how_removed": "Impeachment / non-reelection, not daily confidence vote",
+        "continuity": "Medium-High (term with assembly linkage)",
+        "accountability": "Medium (to assembly, not directly to voters)",
+        "checks": "Assembly supremacy; depends on judicial/councils for balance",
+        "cases": [
+          {
+            "country": "Switzerland",
+            "note": "Federal Council elected by parliament, collegial - extreme stability"
+          },
+          {
+            "country": "South Africa (1994-)",
+            "note": "Parliament elects President; dominant party dynamics shape accountability"
+          },
+          {
+            "country": "Botswana",
+            "note": "Assembly elects President, long single-party dominance"
+          }
+        ],
+        "variants": [
+          "One-time election per term (South Africa)",
+          "Collegial council (Switzerland)",
+          "FR Model: Assembly-Appointed + Judicial Council constraints"
+        ]
+      },
+      {
+        "id": "dual_executive",
+        "label": "Dual Executive",
+        "mechanism": "Both President (directly elected) and Prime Minister (parliamentary) share executive power with split competencies.",
+        "how_chosen": "President directly elected; PM appointed from parliamentary majority",
+        "how_removed": "PM via confidence; President via impeachment/term end -> cohabitation possible",
+        "continuity": "Medium (PM can change, President remains)",
+        "accountability": "Split / Blurred",
+        "checks": "Internal check but rivalry / dual legitimacy risk",
+        "cases": [
+          {
+            "country": "France (1958-)",
+            "note": "Semi-presidential works when President has reserve powers; cohabitation 1986, 1993, 1997 managed rivalry"
+          },
+          {
+            "country": "Portugal",
+            "note": "President as arbiter, PM governs - largely cooperative"
+          },
+          {
+            "country": "Weimar Germany",
+            "note": "President + Chancellor dual legitimacy without democratic safeguards -> instability and overreach"
+          }
+        ],
+        "variants": [
+          "President-parliamentary (President can dismiss PM)",
+          "Premier-presidential (PM only accountable to parliament)"
+        ]
+      },
+      {
+        "id": "collegial_directorial",
+        "label": "Collegial / Directorial",
+        "mechanism": "Executive power shared equally among council who decide collectively; presidency rotates.",
+        "how_chosen": "Council elected by parliament or directly; chair rotates annually",
+        "how_removed": "Individual or collective non-reelection; collective responsibility",
+        "continuity": "Very High (council outlives individuals)",
+        "accountability": "Diffuse (to council and electing body)",
+        "checks": "Internal mutual veto; resists personalization of power",
+        "cases": [
+          {
+            "country": "Switzerland (1848-)",
+            "note": "7-member Federal Council - consensus, stability, low decisiveness"
+          },
+          {
+            "country": "Uruguay (1952-1967)",
+            "note": "9-member colegiado - attempted consensus but reversed to presidential for decisiveness"
+          },
+          {
+            "country": "San Marino",
+            "note": "Two Captains-Regent, 6-month terms - radical rotation prevents entrenchment"
+          }
+        ],
+        "variants": [
+          "Parliament-elected council (Switzerland)",
+          "Directly elected council (Uruguay experiment)",
+          "Rotating presidency (Bosnia & Herzegovina tripartite)"
+        ]
+      }
+    ],
+    "comparison_dimensions": [
+      {
+        "id": "accountability",
+        "label": "Accountability",
+        "question": "How easily can they be removed when failing?"
+      },
+      {
+        "id": "continuity",
+        "label": "Continuity",
+        "question": "Will government survive crisis without collapse?"
+      },
+      {
+        "id": "checks",
+        "label": "Checks on Power",
+        "question": "Who can stop overreach?"
+      },
+      {
+        "id": "decisiveness",
+        "label": "Decisiveness",
+        "question": "Can they act quickly when needed?"
+      },
+      {
+        "id": "coalition",
+        "label": "Coalition Building",
+        "question": "Does it force compromise or allow solo rule?"
+      }
+    ],
+    "interaction_rules": [
+      {
+        "rule_id": "R01_dual_legitimacy",
+        "if": [
+          "direct_presidential + fragmented_legislature + plurality_election"
+        ],
+        "then": "Flag: Dual Legitimacy / Deadlock Risk",
+        "explanation": "Both President and legislature claim popular mandates; no majority to govern. Leads to decree use or gridlock.",
+        "cases": [
+          "USA 1865-68",
+          "Brazil 1950s-60s",
+          "Ecuador"
+        ],
+        "mitigations": [
+          "Runoff majority election",
+          "Strong legislative override",
+          "Limit decree powers"
+        ]
+      },
+      {
+        "rule_id": "R02_strong_president_weak_court",
+        "if": [
+          "direct_presidential + weak_judicial_review"
+        ],
+        "then": "Flag: Checks Deficit - Executive Overreach Risk",
+        "explanation": "Fixed term + popular mandate without strong court or legislature to check power.",
+        "cases": [
+          "Weimar Article 48",
+          "Venezuela post-1999"
+        ],
+        "mitigations": [
+          "Empowered constitutional court",
+          "Legislative veto",
+          "Federal restraints"
+        ]
+      },
+      {
+        "rule_id": "R03_dual_executive_cohabitation",
+        "if": [
+          "dual_executive + polarized_parties"
+        ],
+        "then": "Flag: Cohabitation Rivalry",
+        "explanation": "President and PM from opposing blocs both claim democratic legitimacy -> competing vetoes.",
+        "cases": [
+          "France 1986-88",
+          "Poland 2000s",
+          "Romania"
+        ],
+        "mitigations": [
+          "Clear constitutional разграничение of powers",
+          "President as reserve/arbiter only"
+        ]
+      },
+      {
+        "rule_id": "R04_parliamentary_instability",
+        "if": [
+          "parliamentary_confidence + fragmented_proportional + simple_no_confidence"
+        ],
+        "then": "Flag: Chronic Instability",
+        "explanation": "Easy removal + many small parties = frequent collapses.",
+        "cases": [
+          "Italy pre-1992",
+          "Fourth Republic France",
+          "Israel"
+        ],
+        "mitigations": [
+          "Constructive no-confidence (Germany)",
+          "Electoral threshold",
+          "Fixed-term buffer"
+        ]
+      }
+    ],
+    "neutrality_note": "All options use identical template, card size, evidence length. FR model appears once as 'One implementation among others' under Assembly-Appointed."
+  }
+}
