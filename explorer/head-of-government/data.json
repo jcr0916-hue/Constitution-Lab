@@ -17,7 +17,7 @@
         "cases": [
           {
             "country": "Germany (1949-)",
-            "note": "Constructive vote of no confidence -> high stability, only 8 chancellors"
+            "note": "Constructive vote of no confidence -> high stability, 10 chancellors since 1949 (through Merz, 2025)"
           },
           {
             "country": "Italy (1946-1992)",
@@ -226,7 +226,7 @@
           "Romania"
         ],
         "mitigations": [
-          "Clear constitutional разграничение of powers",
+          "Clear constitutional division of powers",
           "President as reserve/arbiter only"
         ]
       },
