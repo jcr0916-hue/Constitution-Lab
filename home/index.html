@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Constitution Lab — Main page</title>
+<meta name="description" content="A hands-on way to learn how constitutions and governments work. Try a scenario, replay it under different rules, compare the options.">
+<style>
+:root{--paper:#f6f1e7;--card:#fffdf8;--ink:#1d2b3a;--muted:#6a6f78;--brass:#a86f1d;--line:#e4dccb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.65 Georgia,'Times New Roman',serif}
+.ui,.bar,.btn,.pill,.status,.mod a,.fine{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.bar{max-width:980px;margin:0 auto;padding:18px 20px 6px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+.btn{display:inline-block;font-weight:700;font-size:14px;border-radius:99px;padding:12px 18px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:#fff}
+.btn:hover,.btn:focus-visible{background:#000;color:#fff}
+main{max-width:980px;margin:0 auto;padding:12px 20px 40px}
+h1{font-size:42px;line-height:1.1;letter-spacing:-.02em;margin:18px 0 12px}
+h2{font-size:24px;margin:0 0 10px}
+.lead{font-size:20px;color:#4b4f57;max-width:700px}
+.kicker{font:600 12px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+.steps .card p{font-size:16px;margin:0}
+.steps .n{font:700 13px/1 system-ui,sans-serif;color:var(--brass);letter-spacing:.1em;margin-bottom:8px;display:block}
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.mod{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.mod h3{margin:0;font-size:17px}
+.mod p{margin:0;font-size:15px;color:#4b4f57}
+.mod a{margin-top:auto;padding-top:8px;font-size:14px;font-weight:700;color:var(--ink)}
+.status{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:#2f6b4f;padding:3px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.status.soon{background:#8a8f98}
+.fine{font-size:13px;color:var(--muted)}
+footer{max-width:980px;margin:0 auto;padding:10px 20px 48px;border-top:1px solid var(--line)}
+@media(max-width:820px){.steps,.mods{grid-template-columns:1fr}h1{font-size:32px}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="./">Constitution Lab</a>
+  <a class="btn" href="../">← Back to the adventure</a>
+</header>
+
+<main>
+  <p class="kicker">Main page</p>
+  <h1>Learn how power is organized by trying to use it.</h1>
+  <p class="lead">Constitutions are the rulebooks governments play by. Here you step into a scenario, make a few decisions, then replay the same crisis under different rules to see what the rules were quietly doing all along.</p>
+  <p><a class="btn primary" href="../">Start the adventure →</a></p>
+
+  <div class="steps">
+    <div class="card"><span class="n">1 · LIVE IT</span><p>You get a role, a goal, and three decisions. No reading assignment first.</p></div>
+    <div class="card"><span class="n">2 · REWIND IT</span><p>Same you, same goal, different rulebook. Watch the danger move somewhere else.</p></div>
+    <div class="card"><span class="n">3 · COMPARE IT</span><p>See how real countries have handled the same problem, without anyone telling you which is best.</p></div>
+  </div>
+
+  <h2>Topics</h2>
+  <p class="fine">One question at a time. Each takes a few minutes.</p>
+  <div class="mods">
+    <div class="mod"><h3>Who runs the government? <span class="status">live</span></h3><p>And who can remove them? Prime ministers, presidents, and the stranger options.</p><a href="../">Play the adventure →</a><a href="../explorer/head-of-government/">Compare all five answers →</a></div>
+    <div class="mod"><h3>One chamber or two? <span class="status soon">next</span></h3><p>What a second legislative chamber is actually for.</p></div>
+    <div class="mod"><h3>How votes become seats <span class="status soon">planned</span></h3><p>The same votes can produce very different legislatures.</p></div>
+    <div class="mod"><h3>Who checks the checkers? <span class="status soon">planned</span></h3><p>Courts, rights, and how hard a constitution is to change.</p></div>
+    <div class="mod"><h3>Where power lives <span class="status soon">planned</span></h3><p>Central, shared, or local.</p></div>
+    <div class="mod"><h3>Build your own <span class="status soon">someday</span></h3><p>Combine your choices and see where they clash.</p></div>
+  </div>
+</main>
+
+<footer>
+  <p class="fine">Norland is invented. The real-world cases are not. Built with plain structured rules, no AI required. Related project: <a href="https://github.com/jcr0916-hue/federatedrepublic">the Federated Republic</a>.</p>
+</footer>
+</body>
+</html>
