@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Constitution Lab — Who's In Charge? (Playful)</title>
+<title>Constitution Lab — Compare Heads of Government</title>
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="stylesheet" href="../../assets/base.css">
 <style>
 :root{--bg:#fbf9f2;--card:#fff;--ink:#1f1f1f;--muted:#777;--accent:#115e59;--border:#ece8df;}
 *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
@@ -29,6 +31,37 @@ h1{font-size:38px;line-height:1.05;margin:12px 0 6px;letter-spacing:-.03em} h1 s
 .scenarioBtn.active{background:var(--ink);color:#fff;border-color:var(--ink)} .result{border-left:4px solid var(--accent);background:#f0fdfa;padding:12px;border-radius:12px;font-size:13px;min-height:120px}
 .warn{background:#fffbeb;border-left:4px solid #f59e0b} .funMeter{display:flex;gap:6px;align-items:center;margin:8px 0} .dot{width:10px;height:10px;border-radius:50%;background:#e5e7eb} .dot.on{background:var(--accent)}
 footer{max-width:1160px;margin:18px auto;padding:0 24px 40px;color:var(--muted);font-size:12px}
+</style>
+
+<style>
+/* Stage 1B visual integration — comparison behavior unchanged. */
+body{background:var(--navy);color:#eef2ff;font-family:var(--font-sans)}
+header{max-width:1160px;padding-top:24px}
+header h1{font-family:var(--font-serif);color:#fff}
+header h1 span{color:var(--cyan)}
+header .sub{color:#cbd5e1}
+header a{color:var(--cyan)!important;border-color:rgba(255,255,255,.24)!important;background:var(--navy-2)!important}
+.badge{background:var(--violet);color:#fff}
+.stepPill{background:var(--navy-2);color:#e2e8f0;border-color:#4a5973}
+.stepPill.active{background:var(--cyan);color:var(--navy);border-color:var(--cyan)}
+.card,.panel,.trayInner{background:#fff;color:var(--ink);border-color:#dbe2ed}
+.card{box-shadow:var(--shadow-card-sm)}
+.card h3,.panel h2,.trayInner h2{color:var(--navy)}
+.tagline{color:#5740b9}
+.meta{background:#f1f5fb;color:#475569}
+.btn{border-color:#cbd5e1;color:var(--navy)}
+.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.card.selected{outline-color:var(--violet)}
+.compareGrid .head{background:#edf1ff}
+.compareGrid .cell{border-bottom-color:#e2e8f0}
+.bar i,.dot.on{background:var(--violet)}
+.scenarioBtn{border-color:#cbd5e1;color:var(--navy)}
+.scenarioBtn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.result{background:#eff8fc;border-left-color:#14738e;color:var(--ink)}
+.warn{background:#fff5e9;border-left-color:#c66b19}
+footer{color:#cbd5e1}
+a:focus-visible,button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
