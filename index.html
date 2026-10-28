@@ -50,14 +50,14 @@
 @media(max-width:560px){#stageHost .twocol{grid-template-columns:1fr}#stageHost h1{font-size:27px}#stageHost .card{padding:20px 18px}}
 #stageHost .mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px 6px;font-size:15px}
 #stageHost .mini .lbl{font:600 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
-#skipWelcome{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-#skipWelcome:focus{left:20px;top:14px;width:auto;height:auto;padding:8px 12px;background:#fff;color:var(--navy);border-radius:999px;z-index:10}
+#skipLink{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+#skipLink:focus{left:20px;top:14px;width:auto;height:auto;padding:8px 12px;background:#fff;color:var(--navy);border-radius:999px;z-index:10}
 </style>
 </head>
 <body>
-<a href="#welcomePrimary" id="skipWelcome">Skip to content</a>
+<a href="#stage" id="skipLink">Skip to content</a>
 <header class="lab-bar" aria-label="Site">
-  <a class="lab-brand" href="./" aria-label="Constitution Lab home"><strong>Constitution Lab</strong> — Experimental</a>
+  <a class="lab-brand" href="./" aria-label="Constitution Lab — return to start">Constitution Lab</a>
   <nav class="lab-nav" aria-label="Primary">
     <a class="lab-link" href="home/">Main Lab</a>
     <a class="lab-link" href="notes/">Notes &amp; Sources</a>
@@ -81,15 +81,8 @@
   </div>
 </section>
 <section id="experimentView" class="view hidden" aria-labelledby="expHeading" aria-hidden="true">
-  <div class="lab-bar" aria-label="Experiment navigation">
-    <span class="brand-small" style="font:700 12px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:#cbd5e1">Experiment 01 · Get Your Bill Passed</span>
-    <nav class="lab-nav" aria-label="Experiment">
-      <a class="lab-link" href="home/">Main Lab →</a>
-      <a class="lab-link" href="notes/">Notes &amp; Sources</a>
-    </nav>
-  </div>
+  <p id="expHeading" class="visually-hidden" style="position:absolute;left:-9999px">Experiment 01 · Get Your Bill Passed — Norland</p>
   <div id="stageHost">
-    <h2 id="expHeading" style="position:absolute;left:-9999px">Get Your Bill Passed — Norland</h2>
     <div id="stage" tabindex="-1" aria-live="polite"></div>
     <noscript><div class="card" style="padding:18px"><p style="font-family:var(--font-sans)">This experiment needs JavaScript. Visit the <a href="home/">Main Lab</a> or <a href="notes/">Notes</a> without it.</p></div></noscript>
   </div>
@@ -102,6 +95,7 @@ var welcome = document.getElementById('welcome');
 var expView = document.getElementById('experimentView');
 var enterBtn = document.getElementById('welcomePrimary');
 var stage = document.getElementById('stage');
+var skipLink = document.getElementById('skipLink');
 function prefersReduced(){ try{ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){ return false; } }
 function showExperiment(focusStage){
   var reduced = prefersReduced();
@@ -115,11 +109,10 @@ function showExperiment(focusStage){
     requestAnimationFrame(function(){ expView.classList.remove('entering'); expView.classList.add('entered'); });
     if(focusStage && stage){ stage.focus({preventScroll:false}); }
     else { expView.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'}); }
-    try{ sessionStorage.setItem('constitutionlab.welcome','entered'); }catch(e){}
+    if(skipLink) skipLink.setAttribute('href', '#stage');
   }, delay);
 }
 enterBtn.addEventListener('click', function(){ showExperiment(true); });
-enterBtn.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); showExperiment(true); }});
 if(location.hash === '#experiment'){ showExperiment(false); }
 var RUNS = {
   pm: {
@@ -349,7 +342,7 @@ function render(){
   html += optionsHtml(R.steps[S.step].options);
   show(html);
   bind();
-  save(false);
+  if(S.step === 0 && !load() || S.step > 0){ save(false); }
 }
 function choose(id){
   var R = RUNS[S.run], opt = R.steps[S.step].options.filter(function(o){ return o.id===id; })[0];
@@ -358,7 +351,16 @@ function choose(id){
   var oc = (typeof opt.outcome === 'function') ? opt.outcome(S.out) : opt.outcome;
   S.last = { outcome: oc, title: opt.title };
   S.step++;
-  if(S.step >= 3){ finish(); } else { render(); }
+  if(S.step >= 3){ finish(); } else {
+    render();
+    // Respect reduced-motion: scroll the experiment container, not the whole window
+    var stageHost = document.getElementById('stageHost');
+    var target = stageHost || document.documentElement;
+    try{
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    }catch(e){ target.scrollIntoView(); }
+  }
 }
 function finish(){
   var P = Math.min(5, S.P), review = 'durable';
@@ -402,6 +404,13 @@ function finish(){
   show(meters()+html);
   bind();
   save(true);
+  // Keep user at top of the new content (respect reduced-motion)
+  try{
+    var stageHost2 = document.getElementById('stageHost');
+    var r2 = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(stageHost2) stageHost2.scrollIntoView({ behavior: r2 ? 'auto' : 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: r2 ? 'auto' : 'smooth' });
+  }catch(e){}
 }
 function act(a){
   if(a==='rewind'){ S = fresh('pres'); render(); }
@@ -410,8 +419,13 @@ function act(a){
 var restartBtn = document.getElementById('restart');
 if(restartBtn){
   restartBtn.addEventListener('click', function(){
-    clearSaved(); results = {}; S = fresh('pm'); render();
-    welcome.scrollIntoView({behavior:'smooth'});
+    clearSaved(); results = {}; S = fresh('pm');
+    render();
+    try{
+      var sh = document.getElementById('stageHost');
+      if(sh) sh.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' });
+      if(stage) stage.focus({ preventScroll:false });
+    }catch(e){}
   });
 }
 var saved = load();
@@ -420,6 +434,7 @@ if(saved && saved.S && saved.S.run && RUNS[saved.S.run]){
   if(saved.S.step > 0 || saved.done){
     welcome.classList.add('hidden'); welcome.setAttribute('aria-hidden','true');
     expView.classList.remove('hidden'); expView.removeAttribute('aria-hidden'); expView.classList.add('entered');
+    if(skipLink) skipLink.setAttribute('href', '#stage');
   }
   if(saved.done && S.step >= 3){ finish(); } else { render(); }
 } else {
