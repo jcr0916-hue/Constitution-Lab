@@ -342,7 +342,7 @@ function render(){
   html += optionsHtml(R.steps[S.step].options);
   show(html);
   bind();
-  if(S.step === 0 && !load() || S.step > 0){ save(false); }
+  if(S.step > 0 || S.step === 0 && false){ save(false); }
 }
 function choose(id){
   var R = RUNS[S.run], opt = R.steps[S.step].options.filter(function(o){ return o.id===id; })[0];
@@ -353,7 +353,6 @@ function choose(id){
   S.step++;
   if(S.step >= 3){ finish(); } else {
     render();
-    // Respect reduced-motion: scroll the experiment container, not the whole window
     var stageHost = document.getElementById('stageHost');
     var target = stageHost || document.documentElement;
     try{
@@ -404,7 +403,6 @@ function finish(){
   show(meters()+html);
   bind();
   save(true);
-  // Keep user at top of the new content (respect reduced-motion)
   try{
     var stageHost2 = document.getElementById('stageHost');
     var r2 = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -438,7 +436,10 @@ if(saved && saved.S && saved.S.run && RUNS[saved.S.run]){
   }
   if(saved.done && S.step >= 3){ finish(); } else { render(); }
 } else {
-  S = fresh('pm'); render();
+  S = fresh('pm');
+  var _initial = load();
+  if(!_initial) S = fresh('pm'); // keep welcome visible, no premature write
+  render();
 }
 })();
 </script>
