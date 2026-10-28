@@ -37,7 +37,7 @@ explorer/head-of-government/data.json    # Structured model + draft compatibilit
 netlify.toml / _redirects / CNAME        # Hosting config
 ```
 
-The welcome, experiment, Main Lab, and comparison pages share the same token set.
+The welcome, experiment, Main Lab, and notes pages use the new shared design tokens. The separate head-of-government comparison page retains its existing standalone styling pending Stage 1B.
 
 ## Visual identity — Stage 1A
 
