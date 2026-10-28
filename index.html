@@ -52,6 +52,16 @@
 #stageHost .mini .lbl{font:600 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
 #skipLink{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 #skipLink:focus{left:20px;top:14px;width:auto;height:auto;padding:8px 12px;background:#fff;color:var(--navy);border-radius:999px;z-index:10}
+/* Stage 1B: Norland's readable surfaces within the Experimental Lab palette. */
+#stageHost .happened{background:#edf3fa}
+#stageHost .case{background:#eff2ff}
+#stageHost .mini{background:#f7f9fd}
+#stageHost .kicker,#stageHost .case .lbl,#stageHost .aside b{color:#5940b5}
+#stageHost .go{background:var(--navy);border-color:var(--navy)}
+#stageHost .go:hover,#stageHost .go:focus-visible{background:var(--navy-2)}
+#stageHost .opt:focus-visible,#stageHost .go:focus-visible,#stageHost .ghost:focus-visible{outline:3px solid #5940b5;outline-offset:3px}
+#stageHost .card{box-shadow:var(--shadow-card)}
+@media(prefers-reduced-motion:reduce){#stageHost .opt{transition:none}#stageHost .opt:hover{transform:none}}
 </style>
 </head>
 <body>
