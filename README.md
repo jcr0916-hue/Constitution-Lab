@@ -37,7 +37,7 @@ explorer/head-of-government/data.json    # Structured model + draft compatibilit
 netlify.toml / _redirects / CNAME        # Hosting config
 ```
 
-The welcome, experiment, Main Lab, and notes pages use the new shared design tokens. The separate head-of-government comparison page retains its existing standalone styling pending Stage 1B.
+The welcome, experiment, Main Lab, notes, and head-of-government comparison pages now use the Experimental Lab design tokens. The comparison's underlying logic remains standalone and unchanged.
 
 ## Visual identity — Stage 1A
 
@@ -73,3 +73,7 @@ Then visit `http://localhost:8000`.
 ## Stage notes
 
 Stage 1A scope: visual foundation and navigation only (welcome transition + Main Lab hub). The broader Norland visual re-skin is Stage 1B. No builder implementation in this stage.
+
+## Stage 1B — Visual integration (feature branch only)
+
+Norland reading and outcome cards now use cool, high-legibility surfaces rather than parchment beige. The head-of-government comparison page uses the shared navy/cyan/violet visual language and links directly to the introductory experiment. These are visual/navigation changes; the educational models, authored outcomes and scoring are unchanged. Browser-level responsive, interaction, contrast and keyboard testing remains required before production merge.
