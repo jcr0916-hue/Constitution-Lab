@@ -1,0 +1,44 @@
+/* Constitution Lab — Design Tokens (Stage 1A)
+   Experimental Lab — contemporary, intelligent, exploratory */
+:root{
+  --navy:#101A30;
+  --navy-2:#182A49;
+  --navy-3:#1e335c;
+  --cyan:#32D8E5;
+  --cyan-2:#5be7f2;
+  --violet:#8668FF;
+  --violet-2:#a48eff;
+  --orange:#FF9B54;
+  --orange-2:#ffb07a;
+  --paper:#f6f1e7;
+  --card:#ffffff;
+  --card-soft:#f8f7ff;
+  --line:#e4dccb;
+  --line-2:#e6e0ff;
+  --ink:#0f172a;
+  --ink-2:#1d2b3a;
+  --muted:#6a6f78;
+  --muted-2:#9aa3b5;
+  --ok:#2f6b4f;
+  --warn:#9a3d2b;
+  --r-sm:10px;
+  --r-md:14px;
+  --r-lg:18px;
+  --r-xl:22px;
+  --r-pill:999px;
+  --s-1:6px; --s-2:10px; --s-3:14px; --s-4:18px; --s-5:22px; --s-6:28px; --s-7:36px; --s-8:48px;
+  --shadow-card:0 10px 30px rgba(16,26,48,.10);
+  --shadow-card-sm:0 6px 18px rgba(16,26,48,.08);
+  --shadow-glow:0 0 0 1px rgba(50,216,229,.18), 0 8px 24px rgba(50,216,229,.12);
+  --focus:0 0 0 3px rgba(50,216,229,.55);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --dur:360ms;
+  --dur-fast:180ms;
+  --font-serif: Charter, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: Inter, ui-sans-system, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+@media (prefers-reduced-motion:reduce){
+  :root{ --dur:0ms; --dur-fast:0ms; }
+  html{ scroll-behavior:auto; }
+}
