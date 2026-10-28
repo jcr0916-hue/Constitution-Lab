@@ -22,6 +22,8 @@
   .mod p{margin:0;font:14px/1.5 var(--font-sans);color:#475569}
   .mod a{margin-top:auto;padding-top:8px;font:700 13px/1 var(--font-sans);color:var(--navy)}
   .mod a:hover{color:var(--violet)}
+  .mod a[aria-disabled="true"]{pointer-events:none;opacity:.65}
+  .badge{font:700 11px/1 var(--font-sans);color:#64748b;background:#f1f5f9;border:1px solid #e2e8f0;padding:4px 8px;border-radius:999px}
   .status{display:inline-block;font:700 11px/1 var(--font-sans);color:#fff;background:var(--ok);padding:4px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
   .status.soon{background:#64748b}
   .status.planned{background:#fff;color:#64748b;border:1px solid #e2e8f0}
@@ -31,7 +33,7 @@
 </head>
 <body>
 <header class="lab-bar" aria-label="Site">
-  <a class="lab-brand" href="../#experiment" aria-label="Constitution Lab home"><strong>Constitution Lab</strong> — Main Lab</a>
+  <a class="lab-brand" href="../" aria-label="Constitution Lab — return to start"><strong>Constitution Lab</strong> — Main Lab</a>
   <nav class="lab-nav" aria-label="Primary">
     <a class="lab-link" id="back" href="../">← Back to the Lab</a>
     <a class="lab-link" href="../notes/">Notes &amp; Sources</a>
@@ -56,12 +58,12 @@
       <div class="mod">
         <h3>One chamber or two?</h3>
         <p>What a second chamber is actually for — delay, representation, or veto.</p>
-        <a href="#" aria-disabled="true">Coming next</a>
+        <span class="badge">Coming next</span>
       </div>
       <div class="mod">
         <h3>How votes become seats</h3>
         <p>The same votes can produce very different legislatures.</p>
-        <a href="#" aria-disabled="true">Planned</a>
+        <span class="badge">Planned</span>
       </div>
     </div>
   </section>
@@ -77,7 +79,7 @@
       <div class="mod">
         <h3>More experiments</h3>
         <p>Elections without winners, emergencies, federal standoffs — built from the same shared rules.</p>
-        <a href="#" aria-disabled="true">In development</a>
+        <span class="badge">In development</span>
       </div>
     </div>
   </section>
@@ -105,10 +107,10 @@
   try{
     var d = JSON.parse(sessionStorage.getItem('constitutionlab.v1') || 'null');
     var a = document.getElementById('back');
-    if(d && d.S && d.S.run){
+    if(d && d.S && d.S.run && (d.S.step > 0 || d.done)){
       if(d.done){ a.textContent = '← Back to your results'; a.href='../#experiment'; }
-      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President’s office'; a.href='../#experiment'; }
-      else { a.textContent = '← Back to the Prime Minister’s office'; a.href='../#experiment'; }
+      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President\u2019s office'; a.href='../#experiment'; }
+      else { a.textContent = '← Back to the Prime Minister\u2019s office'; a.href='../#experiment'; }
     }
   }catch(e){}
 })();

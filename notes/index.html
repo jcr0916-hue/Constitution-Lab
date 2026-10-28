@@ -23,7 +23,7 @@
 </head>
 <body>
 <header class="lab-bar" aria-label="Site">
-  <a class="lab-brand" href="../home/"><strong>Constitution Lab</strong> — Notes</a>
+  <a class="lab-brand" href="../" aria-label="Constitution Lab — return to start"><strong>Constitution Lab</strong> — Notes</a>
   <a class="lab-link" id="back" href="../">← Back to the Lab</a>
 </header>
 <main>
@@ -54,10 +54,10 @@
   try{
     var d = JSON.parse(sessionStorage.getItem('constitutionlab.v1') || 'null');
     var a = document.getElementById('back');
-    if(d && d.S && d.S.run){
+    if(d && d.S && d.S.run && (d.S.step > 0 || d.done)){
       if(d.done){ a.textContent = '← Back to your results'; a.href='../#experiment'; }
-      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President’s office'; a.href='../#experiment'; }
-      else { a.textContent = '← Back to the Prime Minister’s office'; a.href='../#experiment'; }
+      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President\u2019s office'; a.href='../#experiment'; }
+      else { a.textContent = '← Back to the Prime Minister\u2019s office'; a.href='../#experiment'; }
     }
   }catch(e){}
 })();

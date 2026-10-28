@@ -37,7 +37,7 @@ explorer/head-of-government/data.json    # Structured model + draft compatibilit
 netlify.toml / _redirects / CNAME        # Hosting config
 ```
 
-The welcome, experiment, Main Lab, and comparison pages share the same token set. Reading-heavy debriefs use light surfaces inside the dark/navy brand for legibility.
+The welcome, experiment, Main Lab, and comparison pages share the same token set.
 
 ## Visual identity — Stage 1A
 
