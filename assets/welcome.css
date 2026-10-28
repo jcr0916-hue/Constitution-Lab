@@ -20,7 +20,8 @@
   color:var(--ink);
   position:relative; z-index:1;
 }
-.welcome-kicker{font:700 12px/1 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin:0 0 10px}
+/* Kicker: AA on white (white ~94% over navy still >8:1) */
+.welcome-kicker{font:700 12px/1 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:#3b2bb5;margin:0 0 10px}
 .welcome-title{
   font-family:var(--font-serif);
   font-size:clamp(32px,5vw,48px);
@@ -29,7 +30,7 @@
 }
 .welcome-title em{
   font-style:normal;
-  background:linear-gradient(90deg,var(--violet),var(--cyan));
+  background:linear-gradient(90deg,#3b2bb5,#0f5a78);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .welcome-sub{font:17px/1.55 var(--font-sans);color:#334155;margin:0 0 18px;max-width:62ch}
