@@ -20,7 +20,7 @@
 #stageHost .aside b{display:block;font:700 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--violet);font-style:normal;margin-bottom:6px}
 #stageHost .meters{display:flex;flex-wrap:wrap;gap:6px 18px;font:13px/1.3 var(--font-sans);color:var(--muted);margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
 #stageHost .meters b{color:var(--ink);letter-spacing:.08em;font-weight:600}
-#stageHost .happened{background:#f1ebdd;border-radius:12px;padding:14px 16px 4px;margin:0 0 20px;font-size:16px}
+#stageHost .happened{background:#edf3fa;border-radius:12px;padding:14px 16px 4px;margin:0 0 20px;font-size:16px}
 #stageHost .happened .lbl{font:600 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;display:block}
 #stageHost .pill{display:inline-block;font:600 12px/1 var(--font-sans);color:var(--muted);margin:0 0 10px}
 #stageHost .opts{display:grid;gap:10px;margin:18px 0 4px}
@@ -35,7 +35,7 @@
 #stageHost .result .row span:last-child{font-weight:700;text-align:right}
 #stageHost .good{color:var(--ok)}#stageHost .bad{color:var(--warn)}
 #stageHost .debrief{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-#stageHost .case{background:#f1ebdd;border-radius:12px;padding:16px 18px 6px;margin:12px 0}
+#stageHost .case{background:#eff2ff;border-radius:12px;padding:16px 18px 6px;margin:12px 0}
 #stageHost .case .lbl{font:600 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--violet);display:block;margin-bottom:8px}
 #stageHost .fine{font:13px/1.5 var(--font-sans);color:var(--muted)}
 #stageHost .fine a{color:var(--muted)}
@@ -86,7 +86,7 @@
     </div>
     <div class="welcome-meta" aria-label="Lab scope">
       <span>Constitutional forms — monarchies to direct democracies</span>
-      <span>Static · No login · Netlify Hobby</span>
+      <span>Explore freely · No account needed</span>
     </div>
   </div>
 </section>
@@ -313,7 +313,7 @@ function lawLevel(p){ return p>=4 ? 'full' : (p>=2 ? 'partial' : 'stalled'); }
 function lawText(l){ return l==='full' ? 'Passed in full' : (l==='partial' ? 'Passed in part' : 'Stalled'); }
 function dots(n){ n=Math.max(0,Math.min(5,n)); return new Array(n+1).join('●')+new Array(6-n).join('○'); }
 function paras(a){ return a.map(function(t){ return '<p>'+t+'</p>'; }).join(''); }
-function aside(t){ return t ? '<div class="aside"><b>Professor\u2019s note</b>'+t+'</div>' : ''; }
+function aside(t){ return t ? '<div class="aside"><b>Why this matters</b>'+t+'</div>' : ''; }
 function meters(){
   var h = '<div class="meters"><span>The Act <b>'+dots(S.P)+'</b></span><span>Political capital <b>'+dots(S.C)+'</b></span>';
   if(S.run==='pres' && S.decree){ h += '<span>Legal exposure <b>'+dots(S.U)+'</b></span>'; }
@@ -396,7 +396,7 @@ function finish(){
   var cs;
   if(S.run==='pm'){ cs = (S.picks[0]==='go') ? CASES.major : CASES.callaghan; }
   else { cs = CASES.brazil; }
-  html += '<div class="debrief"><p class="kicker">Debrief</p><p>Here\u2019s the part where a professor would normally start talking. Instead, here is something that actually happened.</p>';
+  html += '<div class="debrief"><p class="kicker">Debrief</p><p>Here\u2019s the part where the rules meet reality. Here is something that actually happened.</p>';
   html += '<div class="case"><span class="lbl">A real case that looks like yours</span>'+paras(cs.paras)+'</div>';
   html += '<p class="fine">No verdict here. Real cases never match yours exactly, and each system trades one risk for another.</p></div>';
   if(S.run==='pm'){
