@@ -120,6 +120,7 @@ function showExperiment(focusStage){
     if(focusStage && stage){ stage.focus({preventScroll:false}); }
     else { expView.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'}); }
     if(skipLink) skipLink.setAttribute('href', '#stage');
+    if(S) save(false); // Explicit experiment entry must survive a refresh.
   }, delay);
 }
 enterBtn.addEventListener('click', function(){ showExperiment(true); });
@@ -424,6 +425,7 @@ function act(a){
   if(a==='rewind'){ S = fresh('pres'); render(); }
   if(a==='again'){ results = {}; S = fresh('pm'); render(); }
   if(a==='rewind' || a==='again'){
+    save(false); // Replace the previous completed run before refresh.
     var start = document.getElementById('stageHost');
     if(start) start.scrollIntoView({behavior:prefersReduced()?'auto':'smooth',block:'start'});
   }
@@ -443,7 +445,7 @@ if(restartBtn){
 var saved = load();
 if(saved && saved.S && saved.S.run && RUNS[saved.S.run]){
   S = saved.S; results = saved.results || {};
-  if(saved.S.step > 0 || saved.done){
+  if(saved.S && saved.S.run){ // A saved run means the visitor entered the experiment.
     welcome.classList.add('hidden'); welcome.setAttribute('aria-hidden','true');
     expView.classList.remove('hidden'); expView.removeAttribute('aria-hidden'); expView.classList.add('entered');
     if(skipLink) skipLink.setAttribute('href', '#stage');
