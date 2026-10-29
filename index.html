@@ -3,101 +3,148 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Constitution Lab — Get Your Bill Passed</title>
-<meta name="description" content="An interactive way to learn how governments work: try to run one, then replay the same crisis under different rules.">
+<title>Constitution Lab — Welcome</title>
+<meta name="description" content="An interactive laboratory for constitutions — make decisions, change the rules, discover the consequences.">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/welcome.css">
 <style>
-:root{--paper:#f6f1e7;--card:#fffdf8;--ink:#1d2b3a;--muted:#6a6f78;--brass:#a86f1d;--line:#e4dccb;--ok:#2f6b4f;--warn:#9a3d2b}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.65 Georgia,'Times New Roman',serif}
-.bar{max-width:760px;margin:0 auto;padding:18px 20px 6px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.brand{font:700 15px/1.2 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.02em;color:var(--ink);text-decoration:none}
-.brand small{display:block;font-weight:400;color:var(--muted);font-size:12px;letter-spacing:0;margin-top:2px}
-.btn-main{font:600 13px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);padding:9px 14px;border-radius:99px;white-space:nowrap}
-.btn-main:hover,.btn-main:focus-visible{background:var(--ink);color:#fff}
-main{max-width:760px;margin:0 auto;padding:8px 20px 40px}
-#stage{outline:none}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 26px 22px;box-shadow:0 6px 24px rgba(29,43,58,.06);animation:rise .35s ease both}
-@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.card{animation:none}}
-.kicker{font:600 12px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin:0 0 12px}
-h1,h2{font-size:32px;line-height:1.15;margin:0 0 14px;letter-spacing:-.01em}
-h2{font-size:26px}
-p{margin:0 0 14px}
-.aside{border-left:3px solid var(--brass);padding:2px 0 2px 14px;margin:16px 0;color:#4b4f57;font-style:italic;font-size:16px}
-.aside b{display:block;font:600 11px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-style:normal;margin-bottom:6px}
-.meters{display:flex;flex-wrap:wrap;gap:6px 18px;font:13px/1.3 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--muted);margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.meters b{color:var(--ink);letter-spacing:.08em;font-weight:600}
-.happened{background:#f1ebdd;border-radius:12px;padding:14px 16px 4px;margin:0 0 20px;font-size:16px}
-.happened .lbl{font:600 11px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;display:block}
-.pill{display:inline-block;font:600 12px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--muted);margin:0 0 10px}
-.opts{display:grid;gap:10px;margin:18px 0 4px}
-.opt{text-align:left;font:inherit;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;color:var(--ink);transition:border-color .15s,transform .15s,box-shadow .15s}
-.opt:hover,.opt:focus-visible{border-color:var(--ink);transform:translateY(-1px);box-shadow:0 4px 14px rgba(29,43,58,.08);outline:none}
-.opt .t{display:block;font:700 16px/1.3 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
-.opt .s{display:block;color:var(--muted);font-size:15px;margin-top:3px}
-.result{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 18px;margin:18px 0}
-.result .row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font:15px/1.4 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
-.result .row:last-child{border-bottom:0}
-.result .row span:first-child{color:var(--muted)}
-.result .row span:last-child{font-weight:700;text-align:right}
-.good{color:var(--ok)}.bad{color:var(--warn)}
-.debrief{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
-.case{background:#f1ebdd;border-radius:12px;padding:16px 18px 6px;margin:12px 0}
-.case .lbl{font:600 11px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:8px}
-.fine{font:13px/1.5 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--muted)}
-.fine a{color:var(--muted)}
-.linklike{font:inherit;background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;cursor:pointer}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.go,.ghost{font:700 15px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;border-radius:99px;padding:13px 20px;cursor:pointer;text-decoration:none;display:inline-block}
-.go{background:var(--ink);color:#fff;border:1.5px solid var(--ink)}
-.go:hover,.go:focus-visible{background:#000}
-.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
-.ghost:hover,.ghost:focus-visible{background:var(--ink);color:#fff}
-.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
-@media(max-width:560px){.twocol{grid-template-columns:1fr}h1{font-size:27px}.card{padding:20px 18px}}
-.mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px 6px;font-size:15px}
-.mini .lbl{font:600 11px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
-footer{max-width:760px;margin:0 auto;padding:0 20px 40px}
+#stageHost .bar{max-width:760px;margin:0 auto;padding:0 0 6px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--font-sans)}
+#stageHost .bar .brand-small{font:700 12px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:#cbd5e1}
+#stageHost .kicker{font:700 12px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--violet);margin:0 0 12px}
+#stageHost h1,#stageHost h2{font-family:var(--font-serif);letter-spacing:-.02em}
+#stageHost h1{font-size:32px;line-height:1.15;margin:0 0 14px}
+#stageHost h2{font-size:26px;line-height:1.15;margin:0 0 14px}
+#stageHost p{margin:0 0 14px;font-family:var(--font-serif);font-size:17px;line-height:1.65}
+#stageHost .aside{border-left:3px solid var(--violet);padding:2px 0 2px 14px;margin:16px 0;color:#475569;font-style:italic;font-size:16px;font-family:var(--font-serif)}
+#stageHost .aside b{display:block;font:700 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--violet);font-style:normal;margin-bottom:6px}
+#stageHost .meters{display:flex;flex-wrap:wrap;gap:6px 18px;font:13px/1.3 var(--font-sans);color:var(--muted);margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+#stageHost .meters b{color:var(--ink);letter-spacing:.08em;font-weight:600}
+#stageHost .happened{background:#edf3fa;border-radius:12px;padding:14px 16px 4px;margin:0 0 20px;font-size:16px}
+#stageHost .happened .lbl{font:600 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;display:block}
+#stageHost .pill{display:inline-block;font:600 12px/1 var(--font-sans);color:var(--muted);margin:0 0 10px}
+#stageHost .opts{display:grid;gap:10px;margin:18px 0 4px}
+#stageHost .opt{text-align:left;font:inherit;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;color:var(--ink);transition:border-color .15s,transform .15s,box-shadow .15s}
+#stageHost .opt:hover,#stageHost .opt:focus-visible{border-color:var(--violet);transform:translateY(-1px);box-shadow:0 4px 14px rgba(16,26,48,.08);outline:none}
+#stageHost .opt .t{display:block;font:700 16px/1.3 var(--font-sans)}
+#stageHost .opt .s{display:block;color:var(--muted);font-size:15px;margin-top:3px;font-family:var(--font-sans)}
+#stageHost .result{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 18px;margin:18px 0}
+#stageHost .result .row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font:15px/1.4 var(--font-sans)}
+#stageHost .result .row:last-child{border-bottom:0}
+#stageHost .result .row span:first-child{color:var(--muted)}
+#stageHost .result .row span:last-child{font-weight:700;text-align:right}
+#stageHost .good{color:var(--ok)}#stageHost .bad{color:var(--warn)}
+#stageHost .debrief{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+#stageHost .case{background:#eff2ff;border-radius:12px;padding:16px 18px 6px;margin:12px 0}
+#stageHost .case .lbl{font:600 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--violet);display:block;margin-bottom:8px}
+#stageHost .fine{font:13px/1.5 var(--font-sans);color:var(--muted)}
+#stageHost .fine a{color:var(--muted)}
+#stageHost .linklike{font:inherit;background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;cursor:pointer;font-family:var(--font-sans)}
+#stageHost .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+#stageHost .go,#stageHost .ghost{font:700 15px/1 var(--font-sans);border-radius:999px;padding:13px 20px;cursor:pointer;text-decoration:none;display:inline-block}
+#stageHost .go{background:var(--navy);color:#fff;border:1.5px solid var(--navy)}
+#stageHost .go:hover,#stageHost .go:focus-visible{background:#000}
+#stageHost .ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+#stageHost .ghost:hover,#stageHost .ghost:focus-visible{background:var(--ink);color:#fff}
+#stageHost .twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+@media(max-width:560px){#stageHost .twocol{grid-template-columns:1fr}#stageHost h1{font-size:27px}#stageHost .card{padding:20px 18px}}
+#stageHost .mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px 6px;font-size:15px}
+#stageHost .mini .lbl{font:600 11px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+#skipLink{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+#skipLink:focus{left:20px;top:14px;width:auto;height:auto;padding:8px 12px;background:#fff;color:var(--navy);border-radius:999px;z-index:10}
+/* Stage 1B: Norland's readable surfaces within the Experimental Lab palette. */
+#stageHost .happened{background:#edf3fa}
+#stageHost .case{background:#eff2ff}
+#stageHost .mini{background:#f7f9fd}
+#stageHost .kicker,#stageHost .case .lbl,#stageHost .aside b{color:#5940b5}
+#stageHost .go{background:var(--navy);border-color:var(--navy)}
+#stageHost .go:hover,#stageHost .go:focus-visible{background:var(--navy-2)}
+#stageHost .opt:focus-visible,#stageHost .go:focus-visible,#stageHost .ghost:focus-visible{outline:3px solid #5940b5;outline-offset:3px}
+#stageHost .card{box-shadow:var(--shadow-card)}
+@media(prefers-reduced-motion:reduce){#stageHost .opt{transition:none}#stageHost .opt:hover{transform:none}}
 </style>
 </head>
 <body>
-<header class="bar">
-  <a class="brand" href="./">Constitution Lab<small>Learn how governments work by trying to run one.</small></a>
-  <a class="btn-main" href="home/">Main page →</a>
+<a href="#welcomePrimary" id="skipLink">Skip to content</a>
+<header class="lab-bar" aria-label="Site">
+  <a class="lab-brand" href="./" aria-label="Constitution Lab — return to start">Constitution Lab</a>
+  <nav class="lab-nav" aria-label="Primary">
+    <a class="lab-link" href="home/">Main Lab</a>
+    <a class="lab-link" href="notes/">Notes &amp; Sources</a>
+  </nav>
 </header>
-
-<main>
-  <div id="stage" tabindex="-1" aria-live="polite"></div>
-  <noscript><div class="card"><p>This page is an interactive story and needs JavaScript. The <a href="home/">main page</a> works without it.</p></div></noscript>
-</main>
-
-<footer class="fine">Norland is invented. The real-world cases are not. No quiz, no grades. · <a href="notes/">Notes &amp; sources</a> · <button class="linklike" id="restart" type="button">Start over</button></footer>
-
+<section id="welcome" class="view entered" aria-labelledby="welcomeTitle">
+  <div class="welcome-orb cyan" aria-hidden="true"></div>
+  <div class="welcome-orb violet" aria-hidden="true"></div>
+  <div class="welcome-card" role="group" aria-label="Welcome">
+    <p class="welcome-kicker">Constitution Lab — Interactive Laboratory</p>
+    <h1 id="welcomeTitle" class="welcome-title">Power is designed. <em>What will you build?</em></h1>
+    <p class="welcome-sub">Explore constitutions through interactive experiments. Make decisions, change the rules, and discover the consequences.</p>
+    <div class="welcome-actions">
+      <button class="btn btn-primary" id="welcomePrimary" type="button">Enter the Lab — Take Office →</button>
+      <a class="btn btn-ghost" href="home/">Skip to Main Lab</a>
+    </div>
+    <div class="welcome-meta" aria-label="Lab scope">
+      <span>Constitutional forms — monarchies to direct democracies</span>
+      <span>Explore freely · No account needed</span>
+    </div>
+  </div>
+</section>
+<section id="experimentView" class="view hidden" aria-labelledby="expHeading" aria-hidden="true">
+  <p id="expHeading" class="visually-hidden" style="position:absolute;left:-9999px">Experiment 01 · Get Your Bill Passed — Norland</p>
+  <div id="stageHost">
+    <div id="stage" tabindex="-1" aria-live="polite"></div>
+    <noscript><div class="card" style="padding:18px"><p style="font-family:var(--font-sans)">This experiment needs JavaScript. Visit the <a href="home/">Main Lab</a> or <a href="notes/">Notes</a> without it.</p></div></noscript>
+  </div>
+  <footer class="footer">Norland is invented. The real-world cases are not. No quiz, no grades. · <a href="notes/">Notes &amp; sources</a> · <button class="linklike" id="restart" type="button">Start over</button> · <a href="home/">Main Lab</a> · <a href="explorer/head-of-government/">Compare 5 answers</a></footer>
+</section>
 <script>
 (function(){
 'use strict';
-
-/* ---------- CONTENT ---------- */
+var welcome = document.getElementById('welcome');
+var expView = document.getElementById('experimentView');
+var enterBtn = document.getElementById('welcomePrimary');
+var stage = document.getElementById('stage');
+var skipLink = document.getElementById('skipLink');
+function prefersReduced(){ try{ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){ return false; } }
+function showExperiment(focusStage){
+  var reduced = prefersReduced();
+  welcome.classList.remove('entered'); welcome.classList.add('exiting');
+  var delay = reduced ? 0 : 280;
+  setTimeout(function(){
+    welcome.classList.add('hidden'); welcome.setAttribute('aria-hidden','true');
+    welcome.classList.remove('exiting');
+    expView.classList.remove('hidden'); expView.removeAttribute('aria-hidden');
+    expView.classList.add('entering');
+    requestAnimationFrame(function(){ expView.classList.remove('entering'); expView.classList.add('entered'); });
+    if(focusStage && stage){ stage.focus({preventScroll:false}); }
+    else { expView.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'}); }
+    if(skipLink) skipLink.setAttribute('href', '#stage');
+    if(S) save(false); // Explicit experiment entry must survive a refresh.
+  }, delay);
+}
+enterBtn.addEventListener('click', function(){ showExperiment(true); });
+if(location.hash === '#experiment'){ showExperiment(false); }
 var RUNS = {
   pm: {
     name: 'Prime Minister',
     open: {
-      kicker: 'Day one · A 3-minute interactive',
+      kicker: 'Day one \u00b7 A 3-minute interactive',
       title: 'Congratulations. You won.',
       paras: [
-        'You’re Dana Reyes, the new Prime Minister of Norland. You also have roughly nine days of goodwill, and a legislature that has already decided your Bridge and Rail Act can wait.',
-        'Priya, your chief of staff, slides a folder across the desk. “There’s a way around them,” she says. “It’s legal. Mostly.”'
+        'You\u2019re Dana Reyes, the new Prime Minister of Norland. You also have roughly nine days of goodwill, and a legislature that has already decided your Bridge and Rail Act can wait.',
+        'Priya, your chief of staff, slides a folder across the desk. \u201cThere\u2019s a way around them,\u201d she says. \u201cIt\u2019s legal. Mostly.\u201d'
       ],
-      aside: 'Note the word “mostly.”',
+      aside: 'Note the word \u201cmostly.\u201d',
       prompt: 'What do you do?'
     },
     steps: [
       { options: [
-        { id:'go', title:'Take the shortcut', sub:'“Pass it, or fire me.”',
+        { id:'go', title:'Take the shortcut', sub:'\u201cPass it, or fire me.\u201d',
           outcome:{ paras:[
-            'Priya’s folder had one page in it: attach a confidence vote to the bill. Pass the Act, or the government falls and everyone, including every legislator in your own party, goes home to face voters.',
+            'Priya\u2019s folder had one page in it: attach a confidence vote to the bill. Pass the Act, or the government falls and everyone, including every legislator in your own party, goes home to face voters.',
             'You announce it at nine. By noon your phone has stopped ringing, which Priya says is either very good or very bad.'],
-            aside:'In a parliamentary system, the legislature doesn’t just write laws. It also keeps the government in office. That’s the lever you just pulled.' } },
+            aside:'In a parliamentary system, the legislature doesn\u2019t just write laws. It also keeps the government in office. That\u2019s the lever you just pulled.' } },
         { id:'deal', title:'Make a deal', sub:'Give the other side something.',
           outcome:{ paras:[
             'You invite opposition leader Tom Hadley to lunch. He wants the rail money moved to his region. Not outrageous, not free. Nobody claims victory, which in politics usually means the deal was real.'],
@@ -108,45 +155,45 @@ var RUNS = {
             aside:'Post-election goodwill is real, and it expires. Nobody announces when.' } }
       ]},
       { prompt:{
-          go:'Opposition leader Tom Hadley holds a press conference. “A bluff,” he says. “Dana wouldn’t risk her own job.” Meanwhile, half your own party is asking Priya whether you’d really do it.',
-          deal:'The deal holds, mostly. But Tom’s side has noticed that you pay, and they’d like a second helping. Your own backbenchers are noticing too.',
-          wait:'A week later, nothing has moved. A newspaper calls the Act “quietly dying.” Tom Hadley has stopped returning calls.' },
+          go:'Opposition leader Tom Hadley holds a press conference. \u201cA bluff,\u201d he says. \u201cDana wouldn\u2019t risk her own job.\u201d Meanwhile, half your own party is asking Priya whether you\u2019d really do it.',
+          deal:'The deal holds, mostly. But Tom\u2019s side has noticed that you pay, and they\u2019d like a second helping. Your own backbenchers are noticing too.',
+          wait:'A week later, nothing has moved. A newspaper calls the Act \u201cquietly dying.\u201d Tom Hadley has stopped returning calls.' },
         options:[
         { id:'double', title:'Double down', sub:'Set the vote for Friday. No amendments.',
           outcome:{ paras:['You tell the chamber the vote is Friday, no amendments. Your loyalists cheer. The cautious ones in your party stop returning your texts.'],
-            aside:'Raising the stakes works when your own side believes you’ll follow through. It gets expensive when they don’t.' } },
+            aside:'Raising the stakes works when your own side believes you\u2019ll follow through. It gets expensive when they don\u2019t.' } },
         { id:'compromise', title:'Compromise', sub:'Trim the bill, keep the bridges.',
           outcome:{ paras:['You cut the rail extension, keep the bridges, and sit down with Tom. Nobody will write a song about it.'],
             aside:'Boring compromises rarely make the history books. They do make a lot of laws.' } },
         { id:'retreat', title:'Regroup', sub:'Shelve the fight for now.',
           outcome:{ paras:['You shelve the contested parts and go back to basics: a smaller bill, a quieter timetable. You look less like a hero and more like someone who intends to still be here next year.'] } }
       ]},
-      { prompt:'It’s the week of the final vote. Priya puts three options on your desk. “Choose now,” she says. “By Friday, someone else will have chosen for you.”',
+      { prompt:'It\u2019s the week of the final vote. Priya puts three options on your desk. \u201cChoose now,\u201d she says. \u201cBy Friday, someone else will have chosen for you.\u201d',
         options:[
         { id:'press', title:'Force the vote', sub:'Let the chamber decide, today.',
           outcome:function(out){ return out
             ? { paras:['You call the vote. The chamber, including a few faces you thought were yours, votes against you.'] }
-            : { paras:['You call the vote. It’s tense, close and loud. The numbers hold.'] }; } },
+            : { paras:['You call the vote. It\u2019s tense, close and loud. The numbers hold.'] }; } },
         { id:'peace', title:'Take the smaller win', sub:'Accept a deal that actually passes.',
           outcome:function(out){ return out
-            ? { paras:['You offer the smaller deal. It isn’t enough; too many people have stopped believing you can deliver anything.'] }
+            ? { paras:['You offer the smaller deal. It isn\u2019t enough; too many people have stopped believing you can deliver anything.'] }
             : { paras:['You offer the smaller deal. Tom takes it. Your own side grumbles and takes it too.'] }; } },
         { id:'voters', title:'Go to the voters', sub:'Call an early election and make it the question.',
           outcome:function(out){ return out
             ? { paras:['You ask the head of state to dissolve the legislature and send everyone to the voters. The voters, it turns out, have other plans.'],
-                aside:'An early election is the parliamentary system’s reset button. It’s also a gamble for the person pressing it.' }
+                aside:'An early election is the parliamentary system\u2019s reset button. It\u2019s also a gamble for the person pressing it.' }
             : { paras:['You ask the head of state to dissolve the legislature and send everyone to the voters. They return you with enough seats to matter.'],
-                aside:'An early election is the parliamentary system’s reset button. It’s also a gamble for the person pressing it.' }; } }
+                aside:'An early election is the parliamentary system\u2019s reset button. It\u2019s also a gamble for the person pressing it.' }; } }
       ]}
     ]
   },
   pres: {
     name: 'President',
     open: {
-      kicker: 'Rewind · Same ambition, different rulebook',
+      kicker: 'Rewind \u00b7 Same ambition, different rulebook',
       title: 'Same country. Same bill. One rule changed.',
       paras: [
-        'You’re still Dana Reyes, and the Bridge and Rail Act is still stuck. But now you’re President of Norland, elected to a fixed term. Nobody can fire you. You can’t fire them, either.',
+        'You\u2019re still Dana Reyes, and the Bridge and Rail Act is still stuck. But now you\u2019re President of Norland, elected to a fixed term. Nobody can fire you. You can\u2019t fire them, either.',
         'Priya slides the same folder across the desk. Different page inside.'
       ],
       aside: 'Same person. Same ambition. Watch what changes.',
@@ -154,111 +201,95 @@ var RUNS = {
     },
     steps: [
       { options: [
-        { id:'go', title:'Take the shortcut', sub:'“Sign the decree.”',
+        { id:'go', title:'Take the shortcut', sub:'\u201cSign the decree.\u201d',
           outcome:{ paras:[
             'The folder holds an emergency decree. You sign at nine; by 9:05, bulldozers are being scheduled. Legally, the bridges are funded. Politically, the legislature has noticed.'],
-            aside:'In a presidential system, the executive and the legislature are elected separately. Neither can fire the other. That’s why decrees are so tempting, and so contested.' } },
+            aside:'In a presidential system, the executive and the legislature are elected separately. Neither can fire the other. That\u2019s why decrees are so tempting, and so contested.' } },
         { id:'deal', title:'Make a deal', sub:'Give the other side something.',
           outcome:{ paras:[
-            'You invite Tom Hadley to lunch. He wants the rail money moved to his region. His leverage isn’t your job, since you have a fixed term. It’s the budget, and the calendar.'],
-            aside:'With no confidence vote to fear, the opposition’s tools are different: committees, budgets, delay.' } },
-        { id:'wait', title:'Wait them out', sub:'You’ve got a fixed term. What’s the rush?',
+            'You invite Tom Hadley to lunch. He wants the rail money moved to his region. His leverage isn\u2019t your job, since you have a fixed term. It\u2019s the budget, and the calendar.'],
+            aside:'With no confidence vote to fear, the opposition\u2019s tools are different: committees, budgets, delay.' } },
+        { id:'wait', title:'Wait them out', sub:'You\u2019ve got a fixed term. What\u2019s the rush?',
           outcome:{ paras:[
-            'You hold off. Nobody can fire you, so there’s no emergency. There’s also no deadline, and that cuts both ways.'],
+            'You hold off. Nobody can fire you, so there\u2019s no emergency. There\u2019s also no deadline, and that cuts both ways.'],
             aside:'A fixed term buys you time. It buys everyone else time too.' } }
       ]},
       { prompt:{
-          go:'Tom Hadley calls it “government by memo.” Lawyers on both sides are already drafting.',
+          go:'Tom Hadley calls it \u201cgovernment by memo.\u201d Lawyers on both sides are already drafting.',
           deal:'Tom agrees to move forward, for a price: he wants a say in the details. Your allies in the legislature are unhappy you gave it away.',
-          wait:'A week later, nothing has moved. The press calls the Act “quietly dying.” Tom isn’t returning calls, and he doesn’t have to.' },
+          wait:'A week later, nothing has moved. The press calls the Act \u201cquietly dying.\u201d Tom isn\u2019t returning calls, and he doesn\u2019t have to.' },
         options:[
         { id:'double', title:'Double down', sub:'A second, bigger decree.',
-          outcome:{ paras:['You issue a second decree, wider than the first. Supporters cheer. The legislature’s lawyers cheer too, in a very different way.'],
+          outcome:{ paras:['You issue a second decree, wider than the first. Supporters cheer. The legislature\u2019s lawyers cheer too, in a very different way.'],
             aside:'Every decree is a bet that nobody with the power to undo it will bother.' } },
         { id:'compromise', title:'Compromise', sub:'Hand them a bill they can amend.',
-          outcome:{ paras:['You invite them to amend your plan. They do, heavily. But what comes out can’t be undone by a memo.'],
-            aside:'A law that passed both branches is harder to undo. It’s also harder to get.' } },
+          outcome:{ paras:['You invite them to amend your plan. They do, heavily. But what comes out can\u2019t be undone by a memo.'],
+            aside:'A law that passed both branches is harder to undo. It\u2019s also harder to get.' } },
         { id:'retreat', title:'Regroup', sub:'Pause the fight for now.',
           outcome:{ paras:['You shelve the fight and focus on what you can do alone. Less dramatic. Rather more durable.'] } }
       ]},
-      { prompt:'The budget deadline is Friday. Priya puts three options on your desk. “Choose now,” she says. “The calendar doesn’t care that you’ve got a fixed term.”',
+      { prompt:'The budget deadline is Friday. Priya puts three options on your desk. \u201cChoose now,\u201d she says. \u201cThe calendar doesn\u2019t care that you\u2019ve got a fixed term.\u201d',
         options:[
         { id:'press', title:'Press on', sub:'Keep using the tools you have.',
           outcome:function(){ return { paras:['You keep using the tools you have: another order, another announcement, another round of lawyers.'] }; } },
         { id:'peace', title:'Make peace', sub:'Trade some control for their signatures.',
-          outcome:function(){ return { paras:['You trade some control for some signatures. Tom brings the legislature’s votes. You bring the pen.'] }; } },
+          outcome:function(){ return { paras:['You trade some control for some signatures. Tom brings the legislature\u2019s votes. You bring the pen.'] }; } },
         { id:'voters', title:'Go to the public', sub:'Take your case to the voters and let pressure do the work.',
-          outcome:function(){ return { paras:['You take your case on the road: rallies, town halls, a great many bridges photographed from flattering angles. Pressure builds, slowly, on a legislature that still can’t be dissolved.'],
-            aside:'With no early-election button, a president’s main lever over the legislature is public opinion, and it works slowly.' }; } }
+          outcome:function(){ return { paras:['You take your case on the road: rallies, town halls, a great many bridges photographed from flattering angles. Pressure builds, slowly, on a legislature that still can\u2019t be dissolved.'],
+            aside:'With no early-election button, a president\u2019s main lever over the legislature is public opinion, and it works slowly.' }; } }
       ]}
     ]
   }
 };
-
 var PM_END = {
-  'in/full':     { head:'The Act passes. You’re still standing.', body:'Eleven bridges, one very smug chief of staff, and a government that survived the week. Enjoy it. Goodwill isn’t renewable.' },
-  'in/partial':  { head:'A smaller Act passes. You’re still standing.', body:'Three bridges instead of eleven, and a government intact. Not the bill you promised. The bill you could pass.' },
-  'in/stalled':  { head:'Nothing passes. Nothing falls.', body:'The bill is dead for now, and you’re still in office. Some people call that stability. Others call it a stalled agenda. Both descriptions are fair.' },
-  'out/full':    { head:'The Act passes. You don’t.', body:'The bridges will get built. Someone else will cut the ribbon.' },
+  'in/full':     { head:'The Act passes. You\u2019re still standing.', body:'Eleven bridges, one very smug chief of staff, and a government that survived the week. Enjoy it. Goodwill isn\u2019t renewable.' },
+  'in/partial':  { head:'A smaller Act passes. You\u2019re still standing.', body:'Three bridges instead of eleven, and a government intact. Not the bill you promised. The bill you could pass.' },
+  'in/stalled':  { head:'Nothing passes. Nothing falls.', body:'The bill is dead for now, and you\u2019re still in office. Some people call that stability. Others call it a stalled agenda. Both descriptions are fair.' },
+  'out/full':    { head:'The Act passes. You don\u2019t.', body:'The bridges will get built. Someone else will cut the ribbon.' },
   'out/partial': { head:'A smaller Act passes, and you lose your job anyway.', body:'Half a victory and a full exit. Priya sends flowers.' },
-  'out/stalled': { head:'You’re out, and the bill goes with you.', body:'A short tenure with a long to-do list.' }
+  'out/stalled': { head:'You\u2019re out, and the bill goes with you.', body:'A short tenure with a long to-do list.' }
 };
 var OUT_CAUSE = {
-  press:  'Your own side wouldn’t back you in the final vote.',
-  peace:  'Even the smaller deal couldn’t repair your standing.',
+  press:  'Your own side wouldn\u2019t back you in the final vote.',
+  peace:  'Even the smaller deal couldn\u2019t repair your standing.',
   voters: 'You called an election and the voters chose someone else.'
 };
 var PRES_END = {
-  'struck':           { head:'Your decree is undone.', body:'Congress lets it lapse, or a court pulls it back. Either way, the bridges are on hold and you’re still President. That’s the thing about a fixed term: it protects you, not your policies.' },
-  'fragile/full':     { head:'It passes, but it’s on thin ice.', body:'Most of your plan is real. Part of it depends on nobody, anywhere, deciding to object.' },
+  'struck':           { head:'Your decree is undone.', body:'Congress lets it lapse, or a court pulls it back. Either way, the bridges are on hold and you\u2019re still President. That\u2019s the thing about a fixed term: it protects you, not your policies.' },
+  'fragile/full':     { head:'It passes, but it\u2019s on thin ice.', body:'Most of your plan is real. Part of it depends on nobody, anywhere, deciding to object.' },
   'fragile/partial':  { head:'A smaller version passes, on thin ice.', body:'Part of your plan is real. Part of it depends on nobody, anywhere, deciding to object.' },
-  'fragile/stalled':  { head:'Nothing passes, and the questions linger.', body:'The bridges aren’t built, and what you did along the way is still being argued about.' },
+  'fragile/stalled':  { head:'Nothing passes, and the questions linger.', body:'The bridges aren\u2019t built, and what you did along the way is still being argued about.' },
   'durable/full':     { head:'The Act passes, and it sticks.', body:'Passed by the legislature, signed by you, hard to undo. Slower than a decree. Sturdier, too.' },
-  'durable/partial':  { head:'A smaller Act passes, on solid ground.', body:'Three bridges instead of eleven. But they’re law.' },
-  'durable/stalled':  { head:'Nothing passes. Nothing breaks.', body:'You’re President for the full term regardless, and the bill sits where you left it. Some call that stability. Others call it gridlock.' }
+  'durable/partial':  { head:'A smaller Act passes, on solid ground.', body:'Three bridges instead of eleven. But they\u2019re law.' },
+  'durable/stalled':  { head:'Nothing passes. Nothing breaks.', body:'You\u2019re President for the full term regardless, and the bill sits where you left it. Some call that stability. Others call it gridlock.' }
 };
-
 var CASES = {
   major: {
     paras: [
-      'In 1993, British Prime Minister John Major lost a vote on the Maastricht Treaty’s social chapter. The next day he put a confidence vote to the House of Commons, vowing to dissolve Parliament if he lost. Rebels in his own party, facing new elections and the loss of the party whip, fell into line. The government won, 339 to 299.',
-      '<b>What’s different:</b> Major’s bluff worked because his own side believed the threat. Yours only works if they believe you. And the fight over that treaty deepened divisions in his party for years.'
+      'In 1993, British Prime Minister John Major lost a vote on the Maastricht Treaty\u2019s social chapter. The next day he put a confidence vote to the House of Commons, vowing to dissolve Parliament if he lost. Rebels in his own party, facing new elections and the loss of the party whip, fell into line. The government won, 339 to 299.',
+      '<b>What\u2019s different:</b> Major\u2019s bluff worked because his own side believed the threat. Yours only works if they believe you. And the fight over that treaty deepened divisions in his party for years.'
     ]
   },
   callaghan: {
     paras: [
-      'In December 1978, Britain’s Callaghan government survived a confidence vote by ten votes after negotiating the support of the Ulster Unionists. On 28 March 1979 it lost another one by a single vote, 311 to 310. Callaghan immediately announced an election, which the Conservatives won.',
-      '<b>What’s different:</b> Callaghan led a minority government that lived on shifting deals. The point isn’t that deals fail. It’s that in this kind of system, a government’s survival is renewed vote by vote.'
+      'In December 1978, Britain\u2019s Callaghan government survived a confidence vote by ten votes after negotiating the support of the Ulster Unionists. On 28 March 1979 it lost another one by a single vote, 311 to 310. Callaghan immediately announced an election, which the Conservatives won.',
+      '<b>What\u2019s different:</b> Callaghan led a minority government that lived on shifting deals. The point isn\u2019t that deals fail. It\u2019s that in this kind of system, a government\u2019s survival is renewed vote by vote.'
     ]
   },
   brazil: {
     paras: [
       'In Brazil, a president can issue a provisional measure that takes effect immediately and lasts up to 60 days, extendable once to 120. If Congress approves it, it becomes law, with whatever changes Congress decides. If not, it expires.',
-      '<b>What’s different:</b> Brazil bars these measures in some areas, such as criminal and electoral law, and Norland’s rules are whatever the story needs. The trade-off is the same: speed now, permanence only with the legislature’s help.'
+      '<b>What\u2019s different:</b> Brazil bars these measures in some areas, such as criminal and electoral law, and Norland\u2019s rules are whatever the story needs. The trade-off is the same: speed now, permanence only with the legislature\u2019s help.'
     ]
   }
 };
-
-/* ---------- STATE + RESUME ---------- */
 var KEY = 'constitutionlab.v1';
-var stage = document.getElementById('stage');
 var S = null;
 var results = {};
-
-function save(done){
-  try{ sessionStorage.setItem(KEY, JSON.stringify({ S:S, results:results, done:!!done })); }catch(e){}
-}
-function load(){
-  try{ var raw = sessionStorage.getItem(KEY); return raw ? JSON.parse(raw) : null; }catch(e){ return null; }
-}
-function clearSaved(){
-  try{ sessionStorage.removeItem(KEY); }catch(e){}
-}
-
-function fresh(run){
-  return { run:run, step:0, P:0, C:2, U:0, out:false, decree:false, picks:[], last:null };
-}
-
+function save(done){ try{ sessionStorage.setItem(KEY, JSON.stringify({ S:S, results:results, done:!!done })); }catch(e){} }
+function load(){ try{ var raw = sessionStorage.getItem(KEY); return raw ? JSON.parse(raw) : null; }catch(e){ return null; } }
+function clearSaved(){ try{ sessionStorage.removeItem(KEY); }catch(e){} }
+function fresh(run){ return { run:run, step:0, P:0, C:2, U:0, out:false, decree:false, picks:[], last:null }; }
 function applyChoice(id){
   var s = S, step = s.step;
   if(s.run === 'pm'){
@@ -279,38 +310,31 @@ function applyChoice(id){
     }
   }
 }
-
 function lawLevel(p){ return p>=4 ? 'full' : (p>=2 ? 'partial' : 'stalled'); }
 function lawText(l){ return l==='full' ? 'Passed in full' : (l==='partial' ? 'Passed in part' : 'Stalled'); }
 function dots(n){ n=Math.max(0,Math.min(5,n)); return new Array(n+1).join('●')+new Array(6-n).join('○'); }
 function paras(a){ return a.map(function(t){ return '<p>'+t+'</p>'; }).join(''); }
-function aside(t){ return t ? '<div class="aside"><b>Professor’s note</b>'+t+'</div>' : ''; }
-
+function aside(t){ return t ? '<div class="aside"><b>Why this matters</b>'+t+'</div>' : ''; }
 function meters(){
   var h = '<div class="meters"><span>The Act <b>'+dots(S.P)+'</b></span><span>Political capital <b>'+dots(S.C)+'</b></span>';
   if(S.run==='pres' && S.decree){ h += '<span>Legal exposure <b>'+dots(S.U)+'</b></span>'; }
   return h + '</div>';
 }
-
 function show(html){
   stage.innerHTML = '<div class="card">'+html+'</div>';
   stage.focus({preventScroll:true});
-  window.scrollTo({top:0,behavior:'smooth'});
 }
-
 function optionsHtml(opts){
   return '<div class="opts">' + opts.map(function(o){
     return '<button class="opt" data-id="'+o.id+'"><span class="t">'+o.title+'</span><span class="s">'+o.sub+'</span></button>';
   }).join('') + '</div>';
 }
-
 function bind(){
   var b = stage.querySelectorAll('.opt');
   for(var i=0;i<b.length;i++){ b[i].addEventListener('click', function(e){ choose(e.currentTarget.getAttribute('data-id')); }); }
   var a = stage.querySelectorAll('[data-act]');
   for(var j=0;j<a.length;j++){ a[j].addEventListener('click', function(e){ act(e.currentTarget.getAttribute('data-act')); }); }
 }
-
 function render(){
   var R = RUNS[S.run], html = '';
   if(S.step === 0){
@@ -329,9 +353,8 @@ function render(){
   html += optionsHtml(R.steps[S.step].options);
   show(html);
   bind();
-  save(false);
+  if(S.step > 0){ save(false); }
 }
-
 function choose(id){
   var R = RUNS[S.run], opt = R.steps[S.step].options.filter(function(o){ return o.id===id; })[0];
   S.picks.push(id);
@@ -339,9 +362,16 @@ function choose(id){
   var oc = (typeof opt.outcome === 'function') ? opt.outcome(S.out) : opt.outcome;
   S.last = { outcome: oc, title: opt.title };
   S.step++;
-  if(S.step >= 3){ finish(); } else { render(); }
+  if(S.step >= 3){ finish(); } else {
+    render();
+    var stageHost = document.getElementById('stageHost');
+    var target = stageHost || document.documentElement;
+    try{
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    }catch(e){ target.scrollIntoView(); }
+  }
 }
-
 function finish(){
   var P = Math.min(5, S.P), review = 'durable';
   if(S.run==='pres'){
@@ -362,48 +392,68 @@ function finish(){
     rows += '<div class="row"><span>The Act</span><span>'+(review==='struck'?'On hold':lawText(law))+'</span></div>';
     results.pres = { head:end.head };
   }
-
   var html = '<div class="happened"><span class="lbl">What happened</span>'+paras(S.last.outcome.paras)+aside(S.last.outcome.aside)+'</div>';
   html += '<p class="kicker">The result</p><h2>'+end.head+'</h2><p>'+end.body+'</p><div class="result">'+rows+'</div>';
-
   var cs;
   if(S.run==='pm'){ cs = (S.picks[0]==='go') ? CASES.major : CASES.callaghan; }
   else { cs = CASES.brazil; }
-  html += '<div class="debrief"><p class="kicker">Debrief</p><p>Here’s the part where a professor would normally start talking. Instead, here is something that actually happened.</p>';
+  html += '<div class="debrief"><p class="kicker">Debrief</p><p>The rules have real-world consequences. Here is a historical example.</p>';
   html += '<div class="case"><span class="lbl">A real case that looks like yours</span>'+paras(cs.paras)+'</div>';
   html += '<p class="fine">No verdict here. Real cases never match yours exactly, and each system trades one risk for another.</p></div>';
-
   if(S.run==='pm'){
     html += '<div class="debrief"><h2>Now the interesting question.</h2><p>What if nothing about you changed except the rulebook?</p>';
-    html += '<div class="actions"><button class="go" data-act="rewind">Rewind: same ambition, different rulebook</button><button class="ghost" data-act="again">Play again</button><a class="ghost" href="home/">Main page →</a></div></div>';
+    html += '<div class="actions"><button class="go" data-act="rewind">Rewind: same ambition, different rulebook</button><button class="ghost" data-act="again">Play again</button><a class="ghost" href="home/">Main Lab \u2192</a></div></div>';
   } else {
     html += '<div class="debrief"><h2>Your two runs, side by side</h2><div class="twocol">';
     html += '<div class="mini"><span class="lbl">As Prime Minister</span><p>'+(results.pm?results.pm.head:'—')+'</p></div>';
     html += '<div class="mini"><span class="lbl">As President</span><p>'+results.pres.head+'</p></div></div>';
-    html += '<p>Same you, same bill, same legislature. Under the parliamentary rulebook, the thing at stake was your job. Under the presidential one, it was your law. Neither is the “right” answer. Each one moves the danger somewhere else.</p>';
+    html += '<p>Same you, same bill, same legislature. Under the parliamentary rulebook, the thing at stake was your job. Under the presidential one, it was your law. Neither is the \u201cright\u201d answer. Each one moves the danger somewhere else.</p>';
     html += '<p>And this is only one question: who runs the government, and who can remove them? There are more than two answers.</p>';
-    html += '<div class="actions"><a class="go" href="explorer/head-of-government/">See all five answers side by side →</a><button class="ghost" data-act="again">Play again</button><a class="ghost" href="home/">Main page →</a></div></div>';
+    html += '<div class="actions"><a class="go" href="explorer/head-of-government/">See all five answers side by side \u2192</a><button class="ghost" data-act="again">Play again</button><a class="ghost" href="home/">Main Lab \u2192</a></div></div>';
   }
   show(meters()+html);
   bind();
   save(true);
+  try{
+    var stageHost2 = document.getElementById('stageHost');
+    var r2 = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(stageHost2) stageHost2.scrollIntoView({ behavior: r2 ? 'auto' : 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: r2 ? 'auto' : 'smooth' });
+  }catch(e){}
 }
-
 function act(a){
   if(a==='rewind'){ S = fresh('pres'); render(); }
   if(a==='again'){ results = {}; S = fresh('pm'); render(); }
+  if(a==='rewind' || a==='again'){
+    save(false); // Replace the previous completed run before refresh.
+    var start = document.getElementById('stageHost');
+    if(start) start.scrollIntoView({behavior:prefersReduced()?'auto':'smooth',block:'start'});
+  }
 }
-
-document.getElementById('restart').addEventListener('click', function(){
-  clearSaved(); results = {}; S = fresh('pm'); render();
-});
-
+var restartBtn = document.getElementById('restart');
+if(restartBtn){
+  restartBtn.addEventListener('click', function(){
+    clearSaved(); results = {}; S = fresh('pm');
+    render();
+    try{
+      var sh = document.getElementById('stageHost');
+      if(sh) sh.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' });
+      if(stage) stage.focus({ preventScroll:false });
+    }catch(e){}
+  });
+}
 var saved = load();
 if(saved && saved.S && saved.S.run && RUNS[saved.S.run]){
   S = saved.S; results = saved.results || {};
+  if(saved.S && saved.S.run){ // A saved run means the visitor entered the experiment.
+    welcome.classList.add('hidden'); welcome.setAttribute('aria-hidden','true');
+    expView.classList.remove('hidden'); expView.removeAttribute('aria-hidden'); expView.classList.add('entered');
+    if(skipLink) skipLink.setAttribute('href', '#stage');
+  }
   if(saved.done && S.step >= 3){ finish(); } else { render(); }
 } else {
-  S = fresh('pm'); render();
+  S = fresh('pm');
+  render();
 }
 })();
 </script>

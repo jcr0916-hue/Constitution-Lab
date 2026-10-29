@@ -3,44 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Constitution Lab — Notes, sources &amp; links</title>
+<title>Constitution Lab — Notes, sources & links</title>
 <meta name="description" content="Sources for the real-world cases, what is invented, and related projects.">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/base.css">
 <style>
-:root{--paper:#f6f1e7;--card:#fffdf8;--ink:#1d2b3a;--muted:#6a6f78;--brass:#a86f1d;--line:#e4dccb}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.65 Georgia,'Times New Roman',serif}
-.bar,.btn,.fine{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
-.bar{max-width:760px;margin:0 auto;padding:18px 20px 6px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.brand{font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
-.btn{display:inline-block;font-weight:700;font-size:14px;border-radius:99px;padding:12px 18px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
-.btn:hover,.btn:focus-visible{background:#000;color:#fff}
-main{max-width:760px;margin:0 auto;padding:12px 20px 56px}
-h1{font-size:36px;line-height:1.15;letter-spacing:-.01em;margin:16px 0 12px}
-h2{font-size:22px;margin:30px 0 8px}
-.kicker{font:600 12px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin:0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:12px 0}
-.card p{margin:0 0 8px;font-size:16px}
-ul{padding-left:20px;margin:8px 0}
-li{margin:6px 0;font-size:16px}
-a{color:var(--ink)}
-.fine{font-size:13px;color:var(--muted)}
+  main{max-width:760px;margin:0 auto;padding:12px 20px 40px}
+  h1{font-family:var(--font-serif);font-size:32px;line-height:1.1;letter-spacing:-.02em;margin:12px 0 10px;color:#fff}
+  h2{font-family:var(--font-serif);font-size:20px;margin:26px 0 8px;color:#e2e8f0}
+  .kicker{font:700 12px/1 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:12px 0;color:var(--ink)}
+  .card p{margin:0 0 8px;font:15px/1.6 var(--font-sans);color:#334155}
+  ul{padding-left:20px;margin:8px 0}
+  li{margin:6px 0;font:15px/1.6 var(--font-sans);color:#334155}
+  a{color:var(--navy)}
+  .fine{font:13px/1.5 var(--font-sans);color:#94a3b8}
+  .fine a{color:#cbd5e1}
 </style>
 </head>
 <body>
-<header class="bar">
-  <a class="brand" href="../home/">Constitution Lab</a>
-  <a class="btn" id="back" href="../">← Back to the Lab</a>
+<header class="lab-bar" aria-label="Site">
+  <a class="lab-brand" href="../" aria-label="Constitution Lab — return to start"><strong>Constitution Lab</strong> — Notes</a>
+  <a class="lab-link" id="back" href="../">← Back to the Lab</a>
 </header>
-
 <main>
-  <p class="kicker">Notes, sources &amp; links</p>
+  <p class="kicker">Notes, sources & links</p>
   <h1>Where the facts come from, and what we made up.</h1>
-
   <h2>What’s invented</h2>
   <div class="card">
     <p>Norland, Dana Reyes, Priya, Tom Hadley and the Bridge and Rail Act are all fictional. So are the game’s scoring rules: they decide how your choices play out in the story and are not measurements of how real governments behave.</p>
   </div>
-
   <h2>What’s real</h2>
   <div class="card">
     <p>The “real case that looks like yours” in each debrief is an actual event. The cases currently used:</p>
@@ -51,24 +43,21 @@ a{color:var(--ink)}
     </ul>
     <p class="fine">Real cases never match a game scenario exactly, so each debrief says how yours differs. If you spot an error, we want to hear about it.</p>
   </div>
-
   <h2>Related projects</h2>
   <div class="card">
     <p><b>From the creators of The Federated Republic.</b> The same people also build <a href="https://github.com/jcr0916-hue/federatedrepublic">The Federated Republic</a>, a separate project that develops one complete fictional constitutional design in detail. Constitution Lab is independent from it: the Lab compares many designs and prefers none.</p>
   </div>
-
   <p class="fine">Constitution Lab is built from plain structured rules. No AI is required to play.</p>
 </main>
-
 <script>
 (function(){
   try{
     var d = JSON.parse(sessionStorage.getItem('constitutionlab.v1') || 'null');
     var a = document.getElementById('back');
-    if(d && d.S && d.S.run){
-      if(d.done){ a.textContent = '← Back to your results'; }
-      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President’s office'; }
-      else { a.textContent = '← Back to the Prime Minister’s office'; }
+    if(d && d.S && d.S.run && (d.S.step > 0 || d.done)){
+      if(d.done){ a.textContent = '← Back to your results'; a.href='../#experiment'; }
+      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President\u2019s office'; a.href='../#experiment'; }
+      else { a.textContent = '← Back to the Prime Minister\u2019s office'; a.href='../#experiment'; }
     }
   }catch(e){}
 })();
