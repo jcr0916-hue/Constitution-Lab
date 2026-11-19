@@ -17,7 +17,7 @@ Saving and sharing a constitution and its results comes later (see Phase 4), and
 
 ## Where the visitor starts
 
-The welcome screen goes straight into the builder: one primary button, **Start your constitution**. Norland stays as Experiment 01, reachable from the Main Lab and offered as a "3-minute warm-up" link under the main button for anyone who wants a guided taste first.
+The welcome screen goes straight into the builder with one action, **Start your constitution**. Norland moves off the first screen. It stays as Experiment 01 in the Main Lab, and its engine becomes the core of the builder's experiments.
 
 ## 1. Draft: the levers
 
@@ -25,12 +25,14 @@ Each lever is a card with 2–5 options, written in the same template as `explor
 
 | Lever | Options (first pass) | Reuse |
 |---|---|---|
-| Who runs the government | Parliamentary confidence · Direct presidential · Assembly-appointed · Dual executive · Collegial council | The 5 options in `data.json`, as they are |
+| Who runs the government | Parliamentary confidence · Direct presidential · Assembly-appointed · Dual executive · Collegial council · Ruling monarch · Ruling council or party | The 5 options in `data.json`, plus two non-democratic ones |
 | Head of state | Hereditary monarch · Elected president · Chosen by legislature · Same person as head of government | New |
-| Legislature | One chamber · Two equal chambers · Two chambers, weak upper house | Matches the planned "One chamber or two?" module |
-| Electoral system | Winner-takes-the-district · Proportional · Mixed | New |
+| Legislature | One chamber · Two equal chambers · Two chambers, weak upper house · Appointed advisory council · None | Matches the planned "One chamber or two?" module |
+| Who chooses the legislature | Winner-takes-the-district · Proportional · Mixed · Limited franchise (e.g. property or citizenship class) · Appointed by the ruler · Chosen by lot | New |
 | Veto | None · Overridden by simple majority · Overridden by two-thirds | New |
 | Emergency powers | None · Legislature must approve · Executive decree, time-limited | Norland's decree path |
+
+Non-democratic designs are allowed from day one, in line with the README's scope (monarchies, oligarchies, theocracies, Athenian-style lot and assembly). They use the same card template and the same neutral tone as every other option.
 
 Later levers, once the first six work: judicial review, amendment rule, term limits, federal vs unitary.
 
@@ -47,7 +49,7 @@ For every role the visitor sees two fields, **title** and **name**, each pre-fil
 - Head of state, legislature and chamber names ("Assembly", "Senate", "Council of Elders"), top court, two to four parties.
 - Supporting cast reused from Norland: a chief of staff (Priya) and an opposition leader (Tom Hadley), renameable like everyone else.
 
-Then a **first election**. A small seat generator turns the electoral system into a parliament: winner-takes-the-district tends toward one big party, proportional tends toward several parties and a coalition. It uses a seeded random draw so "run it again" is reproducible, and the result is shown as a seat bar with the governing majority (or lack of one) labelled.
+Then the government **takes office**. How depends on the rules: an election, an appointment by the ruler, a succession, or a draw by lot. For elected legislatures, a small seat generator turns the electoral system into a parliament: winner-takes-the-district tends toward one big party, proportional tends toward several parties and a coalition. It uses a seeded random draw so "run it again" is reproducible, and the result is shown as a seat bar with the governing majority (or lack of one) labelled.
 
 ## 3. Test: experiments
 
@@ -63,6 +65,9 @@ First experiments, in build order:
 2. **Lose the majority** — a coalition partner walks out or a by-election goes badly.
 3. **The flood** — an emergency that tempts the executive toward emergency powers.
 4. **The court case** — someone challenges a law (needs the judicial review lever).
+5. **Succession** — the ruler dies or steps down. Mainly for monarchies and ruling councils, but every design has to answer "who's next?".
+
+Non-democratic designs change what the experiments test. Where there's no legislature to win over, the pressures come from elsewhere: the ruling council, the army, regions, public unrest. Each experiment lists which pressures apply under which rules, the same way choices do.
 
 ## Real-world echoes, not judgements
 
@@ -100,13 +105,16 @@ Progress is kept in `sessionStorage` during a visit, as Norland does today (`con
 
 ## Phases
 
-1. **Draft + Form.** Six levers, naming, first election, "Watch for" notes. No experiments yet. Welcome screen points here.
+1. **Draft + Form.** Six levers, naming, taking office, "Watch for" notes. No experiments yet. Welcome screen points here.
 2. **First experiment.** Bridge and Rail Act under the visitor's rules, plus "change one rule and rerun".
 3. **More experiments and Echoes.** Lose the majority, the flood, the court case; echoes panel with sourced cases.
 4. **Save and share.** `localStorage` "My constitutions" list, plus a share link that encodes the constitution in the URL. Both stay within the no-database rule. Saving results is the same object plus a list of experiment outcomes.
 
-## Open questions for John
+## Decided with John (2026-11-19)
 
-1. Should Norland disappear from the first screen entirely, or stay as the small warm-up link proposed above?
-2. Are six levers the right starting size, or would you rather start with three (who runs the government, legislature, electoral system) and ship sooner?
-3. Should the builder offer non-democratic designs from day one (e.g. an appointed council, an absolute monarch)? The README says the lab covers them, but they need different experiments.
+- Norland comes off the welcome screen. The site opens on the builder.
+- Non-democratic designs are available from day one.
+
+## Open question for John
+
+1. Are six levers the right starting size, or would you rather start with three (who runs the government, legislature, who chooses it) and ship sooner?
