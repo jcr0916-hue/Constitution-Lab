@@ -21,7 +21,7 @@ The welcome screen goes straight into the builder with one action, **Start your 
 
 ## 1. Draft: the levers
 
-Each lever is a card with 2–5 options, written in the same template as `explorer/head-of-government/data.json` (`id`, `label`, `mechanism`, `how_chosen`, `how_removed`, ...). Same card size and evidence length for every option, as that file's `neutrality_note` already requires.
+Each lever is a card with 3–7 options, written in the same template as `explorer/head-of-government/data.json` (`id`, `label`, `mechanism`, `how_chosen`, `how_removed`, ...). Same card size and evidence length for every option, as that file's `neutrality_note` already requires.
 
 | Lever | Options (first pass) | Reuse |
 |---|---|---|
