@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Constitution Lab — Main Lab</title>
-<meta name="description" content="The Main Lab hub — Learning, Experiments, and the future Constitution Builder.">
+<meta name="description" content="The Main Lab hub — Learning, Experiments, and the Constitution Builder.">
 <link rel="stylesheet" href="../assets/tokens.css">
 <link rel="stylesheet" href="../assets/base.css">
 <style>
@@ -37,14 +37,14 @@
   <nav class="lab-nav" aria-label="Primary">
     <a class="lab-link" id="back" href="../">← Back to the Lab</a>
     <a class="lab-link" href="../notes/">Notes &amp; Sources</a>
-    <a class="lab-link primary" href="../#experiment">Enter Experiment 01</a>
+    <a class="lab-link primary" href="../builder/">Start your constitution</a>
   </nav>
 </header>
 <main class="shell">
   <div class="hero">
     <span class="kicker">Main Lab</span>
     <h1>Learn how power is organized — by trying to use it.</h1>
-    <p class="lead">Constitutions are the rulebooks governments play by. Start with a short experiment, compare how real systems handle the same problem, and eventually draft your own design to test.</p>
+    <p class="lead">Constitutions are the rulebooks governments play by. Draft your own, play a short experiment, or compare how real systems handle the same problem.</p>
   </div>
   <section class="section" aria-labelledby="learningH">
     <h2 id="learningH">Learning</h2>
@@ -74,7 +74,7 @@
       <div class="mod">
         <h3>Experiment 01 — Get Your Bill Passed <span class="status">Live</span></h3>
         <p>Act as Prime Minister or President of Norland. Same bill, different rulebook.</p>
-        <a href="../#experiment">Play now →</a>
+        <a href="../experiments/norland/">Play now →</a>
       </div>
       <div class="mod">
         <h3>More experiments</h3>
@@ -85,17 +85,17 @@
   </section>
   <section class="section" aria-labelledby="builderH">
     <h2 id="builderH">Constitution Builder</h2>
-    <p class="hint">Planned feature — not yet implemented. Preview how it will work.</p>
+    <p class="hint">Write the rules, name the people they create, and watch a government take office.</p>
     <div class="mod builder">
-      <h3>Design your own constitution <span class="status planned">Planned — not built</span></h3>
-      <p>Choose foundational arrangements, then narrower rules. The Lab will highlight contradictions, institutional tensions, and context-dependent risks — and let you test your draft in experiments. Deterministic first, optional AI explanations later.</p>
-      <a href="../notes/">How the Lab handles invented vs real →</a>
+      <h3>Design your own constitution <span class="status">Phase 1 live</span></h3>
+      <p>Three rules so far: who runs the government, the legislature, and who chooses it. Any combination is allowed, including non-democratic ones. The Lab shows what to watch for and where similar rules played out, with no scores. Running experiments against your design comes next.</p>
+      <a href="../builder/">Start your constitution →</a>
     </div>
   </section>
   <section class="section" aria-labelledby="reach">
     <h2 id="reach">Quick links</h2>
     <div class="grid">
-      <div class="mod"><h3>Introductory experiment</h3><p>Jump straight into Norland.</p><a href="../#experiment">Enter the Lab →</a></div>
+      <div class="mod"><h3>Introductory experiment</h3><p>Jump straight into Norland.</p><a href="../experiments/norland/">Play Experiment 01 →</a></div>
       <div class="mod"><h3>Comparison view</h3><p>Five executive arrangements side-by-side.</p><a href="../explorer/head-of-government/">Compare 5 answers →</a></div>
       <div class="mod"><h3>Sources &amp; method</h3><p>What’s invented, what’s historical, what’s modeled.</p><a href="../notes/">Notes &amp; sources →</a></div>
     </div>
@@ -108,9 +108,9 @@
     var d = JSON.parse(sessionStorage.getItem('constitutionlab.v1') || 'null');
     var a = document.getElementById('back');
     if(d && d.S && d.S.run && (d.S.step > 0 || d.done)){
-      if(d.done){ a.textContent = '← Back to your results'; a.href='../#experiment'; }
-      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President\u2019s office'; a.href='../#experiment'; }
-      else { a.textContent = '← Back to the Prime Minister\u2019s office'; a.href='../#experiment'; }
+      if(d.done){ a.textContent = '← Back to your results'; a.href='../experiments/norland/'; }
+      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President\u2019s office'; a.href='../experiments/norland/'; }
+      else { a.textContent = '← Back to the Prime Minister\u2019s office'; a.href='../experiments/norland/'; }
     }
   }catch(e){}
 })();
