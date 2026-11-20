@@ -1,6 +1,6 @@
 # Constitution Builder — design
 
-_2026-11-19. Status: agreed direction, nothing built yet._
+_2026-11-19. Status: agreed direction. Phase 1 (Draft + Form + taking office) built 2026-11-20._
 
 ## The idea in one line
 
@@ -99,7 +99,7 @@ The whole constitution is one plain object, which is what later makes saving eas
 }
 ```
 
-Progress is kept in `sessionStorage` during a visit, as Norland does today (`constitutionlab.v1`).
+Progress is kept in `sessionStorage` during a visit (`constitutionlab.builder.v1`, separate from Norland's `constitutionlab.v1`).
 
 ## Phases
 

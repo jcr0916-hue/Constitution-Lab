@@ -43,6 +43,16 @@
     </ul>
     <p class="fine">Real cases never match a game scenario exactly, so each debrief says how yours differs. If you spot an error, we want to hear about it.</p>
   </div>
+  <h2>Constitution Builder: real-world echoes</h2>
+  <div class="card">
+    <p>The builder shows two short echoes for each rule and a few more in its “Watch for” notes. Each one describes a single rule, never a whole country or a visitor’s whole design. The countries, people, parties and election results the builder generates are invented; its seat generator is a simple model, not a forecast.</p>
+    <ul>
+      <li><b>Who runs the government:</b> Germany’s constructive vote of no confidence (used once, 1982); Italy’s governments 1946–1992; Costa Rica since 1949; Peru’s 1992 dissolution of Congress; South Africa 2008; Botswana 1966–2024; French cohabitation 1986–88; Weimar presidential decrees 1930–33; Switzerland’s Federal Council; Uruguay’s colegiado 1952–67; Liechtenstein’s 2003 referendum; France 1789; Venice 1297–1797; Soviet leadership succession 1982–85.</li>
+      <li><b>The legislature:</b> Sweden 1971; New Zealand 1950 and 1993; Italy’s 2016 referendum; Australia 1975; the UK Parliament Acts 1911 and 1949; Ireland’s 2013 Seanad referendum; Magna Carta 1215; Qatar’s Shura Council 2021–24; England’s Personal Rule 1629–40; Rome 49–44 BCE.</li>
+      <li><b>Who chooses the legislature:</b> UK general elections 2005 and 1951; Netherlands seat allocation; Belgium 2010–11; Germany’s two-vote system; New Zealand 1996; Britain’s Reform Acts 1832–1928; Prussia’s three-class franchise 1849–1918; Canada’s Senate; Jordan’s Senate; Athens’ Council of 500; Ireland’s Citizens’ Assembly 2016–18.</li>
+    </ul>
+    <p class="fine">Source links for these cases are being added. If you spot an error, we want to hear about it.</p>
+  </div>
   <h2>Related projects</h2>
   <div class="card">
     <p><b>From the creators of The Federated Republic.</b> The same people also build <a href="https://github.com/jcr0916-hue/federatedrepublic">The Federated Republic</a>, a separate project that develops one complete fictional constitutional design in detail. Constitution Lab is independent from it: the Lab compares many designs and prefers none.</p>
@@ -55,9 +65,9 @@
     var d = JSON.parse(sessionStorage.getItem('constitutionlab.v1') || 'null');
     var a = document.getElementById('back');
     if(d && d.S && d.S.run && (d.S.step > 0 || d.done)){
-      if(d.done){ a.textContent = '← Back to your results'; a.href='../#experiment'; }
-      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President\u2019s office'; a.href='../#experiment'; }
-      else { a.textContent = '← Back to the Prime Minister\u2019s office'; a.href='../#experiment'; }
+      if(d.done){ a.textContent = '← Back to your results'; a.href='../experiments/norland/'; }
+      else if(d.S.run === 'pres'){ a.textContent = '← Back to the President\u2019s office'; a.href='../experiments/norland/'; }
+      else { a.textContent = '← Back to the Prime Minister\u2019s office'; a.href='../experiments/norland/'; }
     }
   }catch(e){}
 })();

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "neutrality_note": "Every option uses the same template, the same card size and the same evidence length: a one-line summary, how it works, how the office is filled and lost, and two real-world echoes. Where possible the two echoes pair a case where the rule held up with one where it struggled. Echoes describe one rule, never a whole country or a visitor's whole design. No option is scored or ranked.",
+  "defaults_note": "Everything else uses defaults until more rules exist: a top court that can review laws, a ceremonial head of state where your design needs one, and a directly elected president who can issue time-limited decrees.",
+  "levers": [
+    {
+      "id": "hog",
+      "step": 1,
+      "title": "Who runs the government?",
+      "question": "Who holds executive power, and how do they get it and lose it?",
+      "options": [
+        {
+          "id": "parliamentary_confidence",
+          "label": "Parliamentary confidence",
+          "short": "A prime minister governs for as long as the legislature backs them.",
+          "mechanism": "The head of government comes from the legislature and stays in office only while a majority supports them.",
+          "how_chosen": "Whoever can command a majority in the legislature.",
+          "how_removed": "A vote of no confidence, losing a majority at an election, or resignation.",
+          "echoes": [
+            { "place": "Germany, 1949–", "text": "A chancellor can only be voted out if the Bundestag elects a successor in the same vote. It has happened once, in 1982." },
+            { "place": "Italy, 1946–1992", "text": "With many parties and a simple confidence vote, Italy went through dozens of governments in under fifty years." }
+          ]
+        },
+        {
+          "id": "direct_presidential",
+          "label": "Direct presidential",
+          "short": "Voters elect a president for a fixed term, separately from the legislature.",
+          "mechanism": "The president and the legislature each have their own election and their own mandate. Neither can dismiss the other in normal times.",
+          "how_chosen": "A direct popular vote.",
+          "how_removed": "The end of the term, a term limit, or impeachment.",
+          "echoes": [
+            { "place": "Costa Rica, 1949–", "text": "Presidents serve four-year terms and can't run again straight away. Every president since 1949 has been chosen at a regular, peaceful election." },
+            { "place": "Peru, 1992", "text": "Facing a hostile Congress, President Fujimori dissolved it with military backing and governed by decree until a new constitution was written." }
+          ]
+        },
+        {
+          "id": "assembly_appointed",
+          "label": "Chosen by the assembly",
+          "short": "The legislature elects a president for a term, then can't easily remove them.",
+          "mechanism": "The executive owes its office to the legislature, but doesn't face a confidence vote every day.",
+          "how_chosen": "Elected by the legislature, usually after each general election.",
+          "how_removed": "Not being re-elected by the next assembly, or impeachment.",
+          "echoes": [
+            { "place": "South Africa, 2008", "text": "When the governing party recalled President Mbeki, he resigned and Parliament elected a successor within days, without a general election." },
+            { "place": "Botswana, 1966–2024", "text": "The same party held the presidency through the assembly for 58 years, then lost the 2024 election and handed over power peacefully." }
+          ]
+        },
+        {
+          "id": "dual_executive",
+          "label": "President and prime minister",
+          "short": "An elected president and a prime minister backed by the legislature share power.",
+          "mechanism": "Two executives, each with a separate source of authority, split the work of governing.",
+          "how_chosen": "The president by popular vote; the prime minister by the legislature's majority.",
+          "how_removed": "The prime minister by no confidence; the president at the end of the term or by impeachment.",
+          "echoes": [
+            { "place": "France, 1986–1988", "text": "A Socialist president and a conservative prime minister governed together for two years. The arrangement was tense, and it held." },
+            { "place": "Germany, 1930–1933", "text": "Weimar presidents used emergency decree powers to appoint and sustain chancellors without a majority in the Reichstag." }
+          ]
+        },
+        {
+          "id": "collegial_directorial",
+          "label": "Collegial council",
+          "short": "A small council governs together, and the chair rotates.",
+          "mechanism": "Executive power belongs to a council that decides collectively. No single person runs the government.",
+          "how_chosen": "Councillors are elected for a term, usually by the legislature.",
+          "how_removed": "Not being re-elected at the end of the term.",
+          "echoes": [
+            { "place": "Switzerland, 1848–", "text": "A seven-member Federal Council has governed since 1848, with the presidency rotating every year." },
+            { "place": "Uruguay, 1952–1967", "text": "A nine-member national council replaced the president, until voters restored a single president in a 1966 referendum." }
+          ]
+        },
+        {
+          "id": "ruling_monarch",
+          "label": "Ruling monarch",
+          "short": "A hereditary monarch governs, with or without advisers.",
+          "mechanism": "Executive power belongs to a monarch who inherits the throne. Ministers serve at the monarch's pleasure.",
+          "how_chosen": "Succession within a royal family, by rules the family or the constitution sets.",
+          "how_removed": "Death, abdication, or, rarely, deposition.",
+          "echoes": [
+            { "place": "Liechtenstein, 2003", "text": "Voters approved keeping the prince's strong powers, including a veto over laws and the power to dismiss the government." },
+            { "place": "France, 1789", "text": "A royal debt crisis forced the king to summon the Estates-General for the first time since 1614. It did not stay in the role he intended." }
+          ]
+        },
+        {
+          "id": "ruling_council",
+          "label": "Ruling council or party",
+          "short": "A closed council or a single party holds power and chooses its own leaders.",
+          "mechanism": "Power sits with a small body that fills its own ranks. Its chair leads the government.",
+          "how_chosen": "The council chooses its members and its chair.",
+          "how_removed": "The council's own decision, death, or a power struggle inside it.",
+          "echoes": [
+            { "place": "Venice, 1297–1797", "text": "A closed list of noble families filled the Great Council, which elected a doge for life. The republic lasted another five centuries." },
+            { "place": "Soviet Union, 1982–1985", "text": "Three leaders died in office in under three years, and each time the Politburo chose the next one behind closed doors." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legislature",
+      "step": 2,
+      "title": "The legislature",
+      "question": "Who makes the laws, and in how many chambers?",
+      "options": [
+        {
+          "id": "unicameral",
+          "label": "One chamber",
+          "short": "A single assembly passes the laws.",
+          "mechanism": "One vote in one chamber turns a bill into law.",
+          "how_chosen": "Set by the next rule: who chooses the legislature.",
+          "how_removed": "Its term ends, or it is dissolved early where the rules allow.",
+          "echoes": [
+            { "place": "Sweden, 1971–", "text": "Sweden merged its two chambers into one Riksdag in 1971, and has kept one chamber since." },
+            { "place": "New Zealand, 1950–1993", "text": "After abolishing its upper house in 1950, a single majority could pass laws quickly. In 1993 voters changed the electoral system, partly to add brakes." }
+          ]
+        },
+        {
+          "id": "bicameral_equal",
+          "label": "Two equal chambers",
+          "short": "Two chambers, and every law needs both.",
+          "mechanism": "A bill becomes law only when both chambers pass the same text.",
+          "how_chosen": "The lower chamber by the next rule; the upper chamber at a different time or from different districts.",
+          "how_removed": "Each chamber's term ends on its own schedule.",
+          "echoes": [
+            { "place": "Italy, 2016", "text": "Both chambers must back the government. Voters rejected a 2016 proposal to weaken the Senate." },
+            { "place": "Australia, 1975", "text": "The Senate blocked the budget, and the Governor-General dismissed the prime minister to break the deadlock." }
+          ]
+        },
+        {
+          "id": "bicameral_weak_upper",
+          "label": "Two chambers, weak upper house",
+          "short": "The lower chamber decides; the upper chamber can delay and revise.",
+          "mechanism": "The upper chamber reviews bills and can hold them up, but the lower chamber has the last word.",
+          "how_chosen": "The lower chamber by the next rule; the upper chamber indirectly or by appointment.",
+          "how_removed": "The lower chamber's term ends; upper members often serve long terms.",
+          "echoes": [
+            { "place": "United Kingdom, 1911–", "text": "Since the Parliament Acts, the House of Lords can delay most bills for about a year, but not stop them." },
+            { "place": "Ireland, 2013", "text": "Voters narrowly rejected abolishing the Senate, keeping an upper house with limited powers." }
+          ]
+        },
+        {
+          "id": "advisory_council",
+          "label": "Advisory council",
+          "short": "A council gives advice, but the ruler makes the law.",
+          "mechanism": "The council debates and recommends. Final decisions rest with the executive.",
+          "how_chosen": "Set by the next rule: who chooses the legislature.",
+          "how_removed": "At the ruler's discretion or at the end of a term.",
+          "echoes": [
+            { "place": "England, 1215", "text": "Magna Carta said certain taxes needed the \"common counsel\" of the realm. Over centuries, that counsel grew into Parliament." },
+            { "place": "Qatar, 2021–2024", "text": "Two-thirds of the Shura Council was elected for the first time in 2021. A 2024 referendum returned it to fully appointed." }
+          ]
+        },
+        {
+          "id": "none",
+          "label": "No legislature",
+          "short": "No separate body makes laws. The executive does.",
+          "mechanism": "Whoever runs the government also writes the rules.",
+          "how_chosen": "No one is chosen.",
+          "how_removed": "Not applicable.",
+          "echoes": [
+            { "place": "England, 1629–1640", "text": "Charles I ruled for eleven years without calling Parliament, until he needed money for a war and had to call it back." },
+            { "place": "Rome, 49–44 BCE", "text": "The Senate and assemblies kept meeting, but real decisions passed to Caesar as dictator. The Republic's institutions never recovered." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electoral",
+      "step": 3,
+      "title": "Who chooses the legislature?",
+      "question": "How do people get their seats?",
+      "needs": { "legislature": ["unicameral", "bicameral_equal", "bicameral_weak_upper", "advisory_council"] },
+      "skipped_note": "With no legislature, there's nobody to choose. This rule has no effect.",
+      "options": [
+        {
+          "id": "fptp",
+          "label": "Winner takes the district",
+          "short": "Each district elects one member: whoever gets the most votes.",
+          "mechanism": "The country is split into districts. Coming first is enough; coming second wins nothing.",
+          "how_chosen": "Plurality vote in single-member districts.",
+          "how_removed": "Losing the district at the next election.",
+          "echoes": [
+            { "place": "United Kingdom, 2005", "text": "One party won 35% of the vote and 55% of the seats, and governed with a clear majority." },
+            { "place": "United Kingdom, 1951", "text": "The party with slightly fewer votes won more seats and formed the government." }
+          ]
+        },
+        {
+          "id": "proportional",
+          "label": "Proportional",
+          "short": "Parties win seats in proportion to their votes.",
+          "mechanism": "Voters mostly choose parties, and seats are shared out to match vote shares.",
+          "how_chosen": "Party lists, with seats divided by vote share.",
+          "how_removed": "Losing votes at the next election, or being moved down the party's list.",
+          "echoes": [
+            { "place": "Netherlands", "text": "With 150 seats and no formal threshold, a party needs about two-thirds of one percent of the vote to win a seat." },
+            { "place": "Belgium, 2010–2011", "text": "After an election produced no clear coalition, it took 541 days to form a government. A caretaker cabinet kept things running." }
+          ]
+        },
+        {
+          "id": "mixed",
+          "label": "Mixed",
+          "short": "Half the seats are won in districts, half shared out by party vote.",
+          "mechanism": "Voters elect a local member and also vote for a party. List seats top up parties so the total roughly matches their share.",
+          "how_chosen": "Two votes: one for a district, one for a party.",
+          "how_removed": "Losing the district or the list place at the next election.",
+          "echoes": [
+            { "place": "Germany", "text": "Two votes and a 5% threshold have produced coalition governments of two or three parties for decades." },
+            { "place": "New Zealand, 1996", "text": "The first election under the new mixed system took about two months to produce a coalition, with one small party deciding who would govern." }
+          ]
+        },
+        {
+          "id": "limited_franchise",
+          "label": "Limited franchise",
+          "short": "Only some adults can vote, for example those with property or a certain status.",
+          "mechanism": "Elections are held, but the right to vote depends on wealth, status, sex or another test.",
+          "how_chosen": "Elections in districts among the eligible voters.",
+          "how_removed": "Losing among those voters at the next election.",
+          "echoes": [
+            { "place": "Britain, 1832–1928", "text": "The vote widened in stages over a century, from a small propertied electorate to all adults, without a revolution." },
+            { "place": "Prussia, 1849–1918", "text": "Voters were split into three classes by taxes paid, so a small wealthy group elected as many delegates as the great majority." }
+          ]
+        },
+        {
+          "id": "appointed_by_ruler",
+          "label": "Appointed by the ruler",
+          "short": "Whoever runs the government picks the members.",
+          "mechanism": "There are no elections for these seats. Members are appointed and can be replaced.",
+          "how_chosen": "Appointment by the head of government or the monarch.",
+          "how_removed": "At the appointer's discretion, or at an age or term limit.",
+          "echoes": [
+            { "place": "Canada, 1867–", "text": "Senators are appointed and serve until 75. Since 2016 an independent board recommends candidates, and most now sit outside party caucuses." },
+            { "place": "Jordan", "text": "The king appoints the Senate, which shares lawmaking with an elected House. The Senate can be no more than half the size of the House." }
+          ]
+        },
+        {
+          "id": "lot",
+          "label": "Chosen by lot",
+          "short": "Members are ordinary citizens drawn at random.",
+          "mechanism": "A random draw from the citizens fills the seats, usually for a short term.",
+          "how_chosen": "A lottery among eligible citizens.",
+          "how_removed": "The term ends and a new draw takes place.",
+          "echoes": [
+            { "place": "Athens, from about 508 BCE", "text": "A Council of 500 citizens, chosen by lot each year, prepared business for the Assembly for nearly two centuries." },
+            { "place": "Ireland, 2016–2018", "text": "A Citizens' Assembly of 99 randomly chosen people made recommendations on abortion that led to a 2018 referendum." }
+          ]
+        }
+      ]
+    }
+  ],
+  "interaction_rules": [
+    {
+      "rule_id": "B01_dual_legitimacy",
+      "if": { "hog": ["direct_presidential"], "electoral": ["proportional", "mixed"], "legislature": ["unicameral", "bicameral_equal", "bicameral_weak_upper"] },
+      "then": "Dual legitimacy and deadlock",
+      "explanation": "The president and a legislature of several parties both have a mandate from the voters. If the president's side lacks a majority, neither can make the other give way.",
+      "cases": ["Brazil, coalition presidentialism", "Chile, 1970–1973"],
+      "mitigations": ["Runoff elections for president", "A legislative override of vetoes", "Limits on decree powers"]
+    },
+    {
+      "rule_id": "B02_chronic_instability",
+      "if": { "hog": ["parliamentary_confidence", "dual_executive"], "electoral": ["proportional"] },
+      "then": "Frequent changes of government",
+      "explanation": "Many parties win seats, so governments are coalitions. If any partner walks out, the government can fall.",
+      "cases": ["Italy before 1992", "France's Fourth Republic"],
+      "mitigations": ["A constructive vote of no confidence", "An electoral threshold", "Fixed terms for the legislature"]
+    },
+    {
+      "rule_id": "B03_winners_bonus",
+      "if": { "hog": ["parliamentary_confidence", "assembly_appointed"], "electoral": ["fptp"], "legislature": ["unicameral", "bicameral_weak_upper"] },
+      "then": "A large majority with few brakes",
+      "explanation": "Winner-takes-the-district often turns a minority of votes into a majority of seats, and the same majority picks the government. With no strong second chamber, little stands between that majority and any law it wants.",
+      "cases": ["Lord Hailsham's \"elective dictatorship\" lecture, 1976", "New Zealand before 1993"],
+      "mitigations": ["A stronger second chamber", "Judicial review", "A proportional electoral system"]
+    },
+    {
+      "rule_id": "B04_cohabitation",
+      "if": { "hog": ["dual_executive"], "electoral": ["fptp", "proportional", "mixed", "limited_franchise"] },
+      "then": "Cohabitation",
+      "explanation": "The president and the legislature are elected separately, so the prime minister may come from the president's opponents. Both will claim the right to lead.",
+      "cases": ["France, 1986–1988", "Poland, 2007–2010"],
+      "mitigations": ["A clear split of powers between the two", "Synchronised election dates"]
+    },
+    {
+      "rule_id": "B05_chamber_deadlock",
+      "if": { "legislature": ["bicameral_equal"], "electoral": ["fptp", "proportional", "mixed", "limited_franchise"] },
+      "then": "Chambers that disagree",
+      "explanation": "Two equal chambers chosen at different times can have different majorities. Every law then needs both to agree.",
+      "cases": ["Australia, 1975", "United States government shutdowns"],
+      "mitigations": ["A joint sitting to break deadlocks", "A time limit after which the lower chamber prevails"]
+    },
+    {
+      "rule_id": "B06_two_authorities",
+      "if": { "hog": ["ruling_monarch", "ruling_council"], "legislature": ["unicameral", "bicameral_equal", "bicameral_weak_upper"], "electoral": ["fptp", "proportional", "mixed", "limited_franchise", "lot"] },
+      "then": "Two kinds of authority",
+      "explanation": "The rulers inherit or choose themselves, while the legislature is chosen from outside. When they disagree, especially over money, it isn't clear who should give way.",
+      "cases": ["Prussia's budget conflict, 1862–1866", "England, 1640s"],
+      "mitigations": ["Clear rules on who controls the budget", "A path for the legislature to gain powers over time"]
+    },
+    {
+      "rule_id": "B07_no_outside_check",
+      "if": { "hog": ["ruling_monarch", "ruling_council", "direct_presidential"], "legislature": ["none"] },
+      "then": "All power in one place",
+      "explanation": "With no legislature, nothing outside the government reviews its decisions. That makes it fast, and it makes it hard to correct mistakes or settle who comes next.",
+      "cases": ["England's Personal Rule, 1629–1640"],
+      "mitigations": ["An independent court", "Fixed succession rules", "An advisory council"]
+    },
+    {
+      "rule_id": "B08_no_body_to_answer_to",
+      "if": { "hog": ["parliamentary_confidence", "assembly_appointed", "collegial_directorial", "dual_executive"], "legislature": ["none", "advisory_council"] },
+      "then": "A government with no one to answer to",
+      "explanation": "This kind of executive is chosen and removed by a legislature, but your rules don't give it one that can do that. The builder seats the first government once, and nothing in the rules can remove it.",
+      "cases": [],
+      "mitigations": ["Add a law-making legislature", "Switch to a directly elected executive"]
+    },
+    {
+      "rule_id": "B09_ruler_picks_the_checkers",
+      "if": { "electoral": ["appointed_by_ruler"], "legislature": ["unicameral", "bicameral_equal", "bicameral_weak_upper"] },
+      "then": "The government picks its own overseers",
+      "explanation": "The legislature is meant to check the government, but the government appoints it. Members who can be replaced have reasons to agree.",
+      "cases": ["Appointed upper houses in many monarchies"],
+      "mitigations": ["Fixed terms that can't be cut short", "An independent appointments board", "Elect at least one chamber"]
+    },
+    {
+      "rule_id": "B10_who_is_left_out",
+      "if": { "electoral": ["limited_franchise"] },
+      "then": "Who is left out",
+      "explanation": "The people who can't vote still live under the laws. Pressure to widen the vote tends to build, through reform or through protest.",
+      "cases": ["Britain's Reform Acts, 1832–1928", "Prussia's three-class franchise"],
+      "mitigations": ["A timetable for widening the vote"]
+    },
+    {
+      "rule_id": "B11_lot_without_parties",
+      "if": { "electoral": ["lot"], "hog": ["parliamentary_confidence", "assembly_appointed", "dual_executive", "collegial_directorial"] },
+      "then": "A government chosen by people with no parties",
+      "explanation": "Members chosen by lot don't belong to parties, so there is no ready-made majority. Choosing and keeping a government means building one from scratch each time.",
+      "cases": ["Athens' Council of 500, which prepared business but didn't choose a single leader"],
+      "mitigations": ["Short, fixed terms for the executive", "A separate elected chamber"]
+    },
+    {
+      "rule_id": "B12_one_party_council",
+      "if": { "hog": ["collegial_directorial"], "electoral": ["fptp", "limited_franchise"] },
+      "then": "A council of one party",
+      "explanation": "Councils share power best when several parties sit on them. Winner-takes-the-district often hands one party a majority, and it may fill every council seat itself.",
+      "cases": ["Switzerland's \"magic formula\", 1959–2003, sharing seats across four parties"],
+      "mitigations": ["A convention or rule that shares council seats", "A proportional electoral system"]
+    },
+    {
+      "rule_id": "B13_advice_without_power",
+      "if": { "legislature": ["advisory_council"], "hog": ["ruling_monarch", "ruling_council", "direct_presidential"] },
+      "then": "Advice that can be ignored",
+      "explanation": "The council can say no, but it can't stop anything. Its influence depends on how much the rulers need its support, and for what.",
+      "cases": ["Magna Carta's \"common counsel\" for taxes, 1215"],
+      "mitigations": ["Give the council a say over taxes", "Publish its advice"]
+    }
+  ],
+  "roles": {
+    "hog": {
+      "parliamentary_confidence": { "label": "Head of government", "titles": ["Prime Minister", "Chancellor", "Premier", "First Minister"] },
+      "direct_presidential": { "label": "Head of government and state", "titles": ["President", "Chief Executive", "Governor-General"] },
+      "assembly_appointed": { "label": "Head of government and state", "titles": ["President", "Chief Minister", "Premier"] },
+      "dual_executive_president": { "label": "President (elected directly)", "titles": ["President", "Head of State"] },
+      "dual_executive_pm": { "label": "Prime minister (backed by the legislature)", "titles": ["Prime Minister", "Premier", "Chancellor"] },
+      "collegial_directorial": { "label": "The governing council", "council_names": ["Federal Council", "Executive Council", "Council of State", "Directory"], "chair_titles": ["President of the Council", "Chair", "First Councillor"], "size": 7 },
+      "ruling_monarch": { "label": "The monarch", "titles": ["King", "Queen", "Sovereign", "Grand Duke", "Grand Duchess", "Emperor", "Empress"] },
+      "ruling_council": { "label": "The ruling council", "council_names": ["Ruling Council", "Central Committee", "Council of Guardians", "High Council"], "chair_titles": ["Chair", "General Secretary", "First Guardian", "Speaker of the Council"] }
+    },
+    "head_of_state": { "label": "Head of state (ceremonial)", "titles": ["President", "King", "Queen", "Governor", "Grand Duchess"] },
+    "legislature": {
+      "unicameral": ["Assembly", "Parliament", "National Congress", "House of Representatives", "Diet"],
+      "lower": ["House of Representatives", "Assembly", "Chamber of Deputies", "House of Commons"],
+      "upper": ["Senate", "Council of States", "Council of Elders", "Upper House"],
+      "advisory": ["Council of Advisers", "Royal Council", "Council of Elders", "Consultative Assembly"]
+    },
+    "court": ["Supreme Court", "Constitutional Court", "High Court", "Court of Review"],
+    "chief_of_staff": { "label": "Chief of staff", "default": "Priya" },
+    "opposition": { "label": "Opposition leader", "default": "Tom Hadley" }
+  },
+  "pools": {
+    "countries": ["Norland", "Vessaly", "Ardenmark", "Tolvia", "Caravel", "Ostrava Isles", "Meridia", "Halvenia", "Quorra", "Linden Coast", "Sorrento Reach", "Brannock"],
+    "people": ["Dana Reyes", "Amara Okafor", "Lars Brekke", "Mei Lin Tan", "Rafael Duarte", "Noor Haddad", "Ilse Vandenberg", "Kofi Mensah", "Sofia Marchetti", "Arjun Rao", "Hana Sato", "Tomasz Wolski", "Leila Farouk", "Elena Petrova", "Mateo Quispe", "Grace Mwangi", "Oskar Lind", "Yusuf Demir", "Ana Ribeiro", "Siobhan Byrne", "Daniel Avraham", "Mira Kovač", "Ravi Menon", "Ingrid Solberg", "Kwame Asante", "Lucía Herrera", "Jonas Weber", "Aiko Mori", "Felix Adeyemi", "Clara Novak"],
+    "parties": [
+      { "name": "Civic Union", "color": "#3b6fd8" },
+      { "name": "Labour Front", "color": "#d8473b" },
+      { "name": "Green Future", "color": "#2f9e5b" },
+      { "name": "Farmers' League", "color": "#c99a2e" },
+      { "name": "Liberal Alliance", "color": "#8a5cd6" },
+      { "name": "Coast and Country", "color": "#1aa3a3" },
+      { "name": "Reform Movement", "color": "#e07b2a" },
+      { "name": "People's Party", "color": "#6b7a90" }
+    ]
+  }
+}
