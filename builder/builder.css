@@ -49,6 +49,10 @@
 .echo{background:#eff2ff;border-radius:10px;padding:10px 12px;margin:8px 0}
 .echo b{font:700 13px/1.3 var(--font-sans);color:var(--navy)}
 .echo p{margin:3px 0 0;font-size:14px}
+.echo .src{font-size:12.5px;line-height:1.5;color:#475569;margin-top:6px}
+.echo .src span{font-weight:700}
+.echo .src a,.src-note a,.note .mit a{color:#3b2bb5}
+.src-note{font-size:12.5px}
 
 .watch{margin:6px 0 16px;border:1px solid var(--line-2);background:linear-gradient(180deg,#fbfaff,#f6f4ff);border-radius:var(--r-lg);padding:16px 18px}
 .watch h2{font-size:20px}

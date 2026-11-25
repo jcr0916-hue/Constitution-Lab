@@ -281,6 +281,17 @@ function renderStepper(){
     return '<li><button type="button" data-goto="' + s[0] + '"' + (cur ? ' aria-current="step"' : '') + (reach[s[0]] ? '' : ' disabled') + '><span class="n">' + s[1] + '</span>' + s[2] + '</button></li>';
   }).join('');
 }
+function sourcesHtml(list){
+  if(!list || !list.length) return '';
+  return '<p class="src"><span>Sources:</span> ' + list.map(function(x){
+    return '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.label) + '</a>';
+  }).join(' · ') + '</p>';
+}
+function caseHtml(c){
+  if(typeof c === 'string') return esc(c);
+  var first = c.sources && c.sources[0];
+  return first ? '<a href="' + esc(first.url) + '" target="_blank" rel="noopener">' + esc(c.label) + '</a>' : esc(c.label);
+}
 function watchHtml(){
   var w = watchFor();
   var h = '<section class="watch" aria-labelledby="watchH"><h2 id="watchH">Watch for</h2>';
@@ -290,7 +301,7 @@ function watchHtml(){
     h += w.map(function(r){
       return '<div class="note"><h3>' + esc(r.then) + '</h3><p>' + esc(r.explanation) + '</p>' +
         (r.mitigations.length ? '<p class="mit"><b>Designs that soften this:</b> ' + r.mitigations.map(esc).join(' · ') + '</p>' : '') +
-        (r.cases.length ? '<p class="mit"><b>Echoes:</b> ' + r.cases.map(esc).join(' · ') + '</p>' : '') + '</div>';
+        (r.cases.length ? '<p class="mit"><b>Echoes:</b> ' + r.cases.map(caseHtml).join(' · ') + '</p>' : '') + '</div>';
     }).join('');
   }
   return h + '</section>';
@@ -301,7 +312,8 @@ function optionDetail(l, o){
     '<div><dt>How it’s filled</dt><dd>' + esc(o.how_chosen) + '</dd></div>' +
     '<div><dt>How it ends</dt><dd>' + esc(o.how_removed) + '</dd></div></dl>' +
     '<details class="echoes"><summary>Real-world echoes</summary><p class="quiet">Each echo is about this one rule, never a whole country or your whole design.</p>' +
-    o.echoes.map(function(e){ return '<div class="echo"><b>' + esc(e.place) + '</b><p>' + esc(e.text) + '</p></div>'; }).join('') +
+    o.echoes.map(function(e){ return '<div class="echo"><b>' + esc(e.place) + '</b><p>' + esc(e.text) + '</p>' + sourcesHtml(e.sources) + '</div>'; }).join('') +
+    '<p class="quiet src-note">Rule links go to the constitutional text on the Constitute Project. <a href="../notes/#echo-sources">How we source echoes</a>.</p>' +
     '</details></div>';
 }
 function renderDraft(){
