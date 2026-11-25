@@ -75,7 +75,7 @@ After an experiment, an **Echoes** panel can show one or two real cases where a 
 - An echo is attached to a rule or a combination, never to the visitor's whole constitution, and never says "your system is like country X".
 - Where possible, pair a case where the rule held up with one where it struggled.
 - No scores, rankings or verdicts anywhere in the builder. The outcome cards describe trade-offs ("Some call that stability. Others call it gridlock."), as Norland already does.
-- Every case is sourced in `notes/`, and the invented parts are labelled as invented there.
+- Every case is sourced in `notes/`, and the invented parts are labelled as invented there. Each case links the constitutional clause (Constitute Project) and an established reference for what happened; see `docs/sourcing-policy.md`.
 
 ## How it's built
 

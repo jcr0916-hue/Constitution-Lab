@@ -21,7 +21,7 @@ It is not a historical-document viewer and not a conventional civics textbook.
 - **Constitution Builder (`builder/`)** — phase 1: write three rules (who runs the government, the legislature, who chooses it), name the offices and bodies those rules create, then watch the government take office (seeded election, seat bars, coalition or appointment). "Watch for" notes and real-world echoes, no scores. Design: `docs/constitution-builder-design.md`.
 - **Experiment 01 (`experiments/norland/`)** — the Norland bill-passing game, now reached from the Main Lab. Old `/#experiment` links redirect there.
 - **Main Lab (`home/`)** — hub for **Learning**, **Experiments**, and the **Constitution Builder**.
-- **Notes & sources (`notes/`)** — what is invented (Norland, characters, game scoring) vs what is historical (cited cases), plus related projects.
+- **Notes & sources (`notes/`)** — what is invented (Norland, characters, game scoring) vs what is historical (cited cases), plus the full list of builder echoes and their sources, read from `builder/data.json`. How cases are sourced: `docs/sourcing-policy.md`.
 
 Existing routes (`explorer/head-of-government/`, redirects) remain functional.
 
